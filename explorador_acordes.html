@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explorador de Acordes y Escalas — Jazz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F5F0;--card:#fff;--text:#1C1917;--sub:#78716C;--muted:#A8A29E;
+  --border:#E7E5E0;--border2:#D6D3D1;--bg2:#FAFAF7;
+  --radius:10px;--font:DM Sans,system-ui,sans-serif;--mono:ui-monospace,monospace;
+}
+html,body{min-height:100vh;background:var(--bg);font-family:var(--font);color:var(--text)}
+.app{max-width:700px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:20px;font-weight:500;color:var(--text);margin-bottom:4px}
+.sub{font-size:12px;color:var(--sub);margin-bottom:18px;line-height:1.5}
+.row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.chord-name{font-size:24px;font-weight:500}
+.chord-formula{font-size:13px;font-family:var(--mono);color:var(--muted);margin-top:3px}
+.chord-feel{font-size:12px;color:var(--sub);margin-top:2px}
+#audio-msg{font-size:11px;color:var(--muted);font-style:italic;padding-top:6px}
+.field-label{font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.btn-group{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+.sel-btn{padding:5px 13px;border-radius:7px;font-size:13px;cursor:pointer;font-family:var(--font);border:1.5px solid var(--border);background:white;color:var(--sub);font-weight:400;transition:all .13s}
+.sel-btn:hover{border-color:var(--border2)}
+.sel-btn.active{font-weight:500}
+.chord-btn{padding:5px 12px;border-radius:7px;font-size:12px;cursor:pointer;font-family:var(--font);border:1.5px solid var(--border);background:white;color:var(--sub);font-weight:400;transition:all .13s}
+.chord-btn:hover{border-color:var(--border2)}
+.chord-btn.active{font-weight:500}
+
+/* Keyboard */
+.kb-wrap{overflow-x:auto;margin-bottom:12px;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+#kb{position:relative;flex-shrink:0;height:110px}
+
+/* Note info */
+.note-info{margin-bottom:14px;font-size:12px}
+.ni-row{margin-bottom:5px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.ni-label{font-weight:500;white-space:nowrap}
+.ni-notes{font-family:var(--mono);font-size:12px}
+.ni-ext{font-size:11px;color:var(--muted);margin-top:3px}
+
+/* Play buttons */
+.play-btns{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.play-btn{padding:7px 13px;border-radius:8px;font-size:12px;cursor:pointer;font-family:var(--font);font-weight:500;display:inline-flex;align-items:center;gap:5px;transition:all .12s;border:1.5px solid transparent}
+.play-btn:disabled{opacity:.5;cursor:not-allowed}
+.stop-btn{padding:7px 13px;border-radius:8px;font-size:12px;cursor:pointer;font-family:var(--font);font-weight:500;display:none;align-items:center;gap:5px;border:1.5px solid #F5C6C2;background:#FDF2F2;color:#C0392B}
+
+/* Speed */
+.speed-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.speed-row label{font-size:12px;color:var(--sub)}
+.speed-row input{flex:1;max-width:140px;accent-color:var(--sub)}
+.speed-lbl{font-size:12px;color:var(--sub);min-width:40px}
+
+/* Tip */
+.tip{padding:10px 14px;border-radius:var(--radius);background:var(--bg2);border:1px solid var(--border);font-size:12px;color:var(--sub);line-height:1.6}
+.tip strong{color:var(--text);font-weight:500}
+</style>
+</head>
+<body>
+<div class="app">
+  <h1>Explorador de Acordes y Escalas</h1>
+  <p class="sub">Escuchá · Cantá · Repetí — hasta que tu oído y tu voz lo integren</p>
+
+  <div class="row">
+    <div>
+      <div id="chord-name" class="chord-name"></div>
+      <div id="chord-formula" class="chord-formula"></div>
+      <div id="chord-feel" class="chord-feel"></div>
+    </div>
+    <div id="audio-msg">Tocá un botón para activar el audio</div>
+  </div>
+
+  <div class="field-label">Tonalidad</div>
+  <div class="btn-group" id="key-btns"></div>
+
+  <div class="field-label">Tipo de acorde</div>
+  <div class="btn-group" id="chord-btns"></div>
+
+  <div class="kb-wrap"><div id="kb"></div></div>
+
+  <div class="note-info" id="note-info"></div>
+
+  <div class="field-label">Escuchar</div>
+  <div class="play-btns" id="play-btns"></div>
+
+  <div class="speed-row">
+    <label for="spd">Velocidad</label>
+    <input type="range" id="spd" min="150" max="800" value="420">
+    <span class="speed-lbl" id="spd-lbl">Medio</span>
+  </div>
+
+  <div class="tip">
+    <strong>Cómo practicar:</strong> escuchá el acorde → cantá la raíz →
+    cantá el arpegio completo → improvisá 30 segundos usando solo esas notas.
+    Repetí hasta que salga automático. Clic en cualquier tecla para escucharla sola.
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+<script>
+const JAZZ_KEYS=["C","F","Bb","Eb","Ab","Db","G","D"];
+const FLAT_KEYS=new Set(["F","Bb","Eb","Ab","Db"]);
+const KEY_ROOT={C:60,F:65,Bb:70,Eb:63,Ab:68,Db:61,G:67,D:62};
+const NFLAT=["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
+const NSHARP=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+const CHORDS={
+  maj7:{label:"Major 7",sym:"maj7",formula:"1 · 3 · 5 · 7",color:"#047857",bg:"#ECFDF5",
+    chord:[0,4,7,11],scale:[0,2,4,5,7,9,11],sname:"Jónico",
+    feel:"Estable · luminoso · resuelto",
+    ext:"9 (dulce) · #11 (Lydian, etéreo) · 13 (pleno)"},
+  dom7:{label:"Dominant 7",sym:"7",formula:"1 · 3 · 5 · b7",color:"#C2410C",bg:"#FFF7ED",
+    chord:[0,4,7,10],scale:[0,2,4,5,7,9,10],sname:"Mixolidio",
+    feel:"Tensión · quiere resolver · el motor del jazz",
+    ext:"b9 (oscuro) · #9 (blues) · 13 (pleno) · b13 (alterado)"},
+  min7:{label:"Minor 7",sym:"m7",formula:"1 · b3 · 5 · b7",color:"#3730A3",bg:"#F0F0FF",
+    chord:[0,3,7,10],scale:[0,2,3,5,7,9,10],sname:"Dórico",
+    feel:"Cálido · jazzy · el menor más usado en jazz",
+    ext:"9 (abre el espacio) · 11 (modal) · 13 (la 6ta de Dórico)"},
+  m7b5:{label:"Minor 7b5",sym:"m7b5",formula:"1 · b3 · b5 · b7",color:"#6D28D9",bg:"#F5F3FF",
+    chord:[0,3,6,10],scale:[0,2,3,5,6,9,10],sname:"Locrio #2",
+    feel:"Oscuro · transitorio · el ii en tonalidades menores",
+    ext:"11 (la extensión más usada)"},
+  dim7:{label:"Diminished 7",sym:"dim7",formula:"1 · b3 · b5 · bb7",color:"#C0392B",bg:"#FDF2F2",
+    chord:[0,3,6,9],scale:[0,2,3,5,6,8,9,11],sname:"Disminuída",
+    feel:"Máxima tensión · simétrico · acorde de paso",
+    ext:"Todas sus notas son tensiones resolubles"},
+};
+
+const WW=36,WH=110,BW=22,BH=68;
+const WMIDI=[60,62,64,65,67,69,71,72,74,76,77,79,81,83];
+const BMIDI=[61,63,66,68,70,73,75,78,80,82];
+const BNEXT={61:62,63:64,66:67,68:69,70:71,73:74,75:76,78:79,80:81,82:83};
+const wpos={};WMIDI.forEach((m,i)=>wpos[m]=i*WW);
+const bpos={};Object.entries(BNEXT).forEach(([b,n])=>bpos[+b]=wpos[n]-BW/2);
+
+let sKey="Bb",sChord="maj7",synth=null,audioOK=false,cancelPlay=false,isPlaying=false,spd=420;
+
+const nn=m=>(FLAT_KEYS.has(sKey)?NFLAT:NSHARP)[m%12];
+const tn=m=>NSHARP[m%12]+(Math.floor(m/12)-1);
+const chordN=()=>CHORDS[sChord].chord.map(i=>KEY_ROOT[sKey]+i);
+const scaleN=()=>CHORDS[sChord].scale.map(i=>KEY_ROOT[sKey]+i);
+const guideN=()=>{const c=CHORDS[sChord],r=KEY_ROOT[sKey];return[c.chord[0],c.chord[1],c.chord[3]].map(i=>r+i);}
+
+function bgFor(midi){
+  const c=CHORDS[sChord],r=KEY_ROOT[sKey];
+  const cm=c.chord.map(i=>r+i),sm=c.scale.map(i=>r+i);
+  const isB=BMIDI.includes(midi);
+  if(midi===r)return c.color;
+  if(cm.includes(midi))return c.color+"99";
+  if(sm.includes(midi))return isB?c.color+"55":c.color+"33";
+  return isB?"#292524":"white";
+}
+function fgFor(midi){
+  const c=CHORDS[sChord],r=KEY_ROOT[sKey];
+  const cm=c.chord.map(i=>r+i);
+  if(midi===r||cm.includes(midi))return"white";
+  return BMIDI.includes(midi)?"#aaa":c.color;
+}
+
+async function initAudio(){
+  if(!audioOK){
+    await Tone.start();
+    synth=new Tone.PolySynth(Tone.Synth,{
+      oscillator:{type:"triangle"},
+      envelope:{attack:.02,decay:.4,sustain:.3,release:1},
+      volume:-8
+    }).toDestination();
+    audioOK=true;
+    const msg=document.getElementById("audio-msg");
+    msg.textContent="✓ Audio activo";
+    msg.style.color="#047857";
+  }
+}
+
+function stopAll(){
+  cancelPlay=true;if(synth)synth.releaseAll();isPlaying=false;
+  highlight(new Set());updBtns();
+}
+
+function highlight(set){
+  document.querySelectorAll("[data-midi]").forEach(el=>{
+    const m=+el.dataset.midi;
+    el.style.background=set.has(m)?CHORDS[sChord].color:bgFor(m);
+  });
+}
+
+async function playNotes(midis,sim=false){
+  await initAudio();stopAll();
+  await new Promise(r=>setTimeout(r,80));
+  cancelPlay=false;isPlaying=true;updBtns();
+  if(sim){
+    highlight(new Set(midis));
+    synth.triggerAttackRelease(midis.map(tn),"2n");
+    await new Promise(r=>setTimeout(r,1800));
+    highlight(new Set());
+  }else{
+    for(const m of midis){
+      if(cancelPlay)break;
+      highlight(new Set([m]));
+      synth.triggerAttackRelease(tn(m),"8n");
+      await new Promise(r=>setTimeout(r,spd));
+    }
+    if(!cancelPlay)highlight(new Set());
+  }
+  isPlaying=false;updBtns();
+}
+
+function playKey(midi){
+  initAudio().then(()=>{
+    synth.triggerAttackRelease(tn(midi),"4n");
+    const el=document.querySelector(`[data-midi="${midi}"]`);
+    if(el){el.style.background=CHORDS[sChord].color;setTimeout(()=>{el.style.background=bgFor(midi);},450);}
+  });
+}
+
+function buildKb(){
+  const kb=document.getElementById("kb");
+  kb.innerHTML="";
+  kb.style.width=WMIDI.length*WW+"px";
+  const r=KEY_ROOT[sKey];
+  const cm=CHORDS[sChord].chord.map(i=>r+i);
+
+  WMIDI.forEach(m=>{
+    const el=document.createElement("div");
+    el.dataset.midi=m;
+    Object.assign(el.style,{position:"absolute",left:wpos[m]+"px",top:"0",
+      width:WW-1+"px",height:WH+"px",background:bgFor(m),
+      border:"0.5px solid var(--border2)",borderRadius:"0 0 4px 4px",
+      cursor:"pointer",transition:"background .15s",boxSizing:"border-box"});
+    if(cm.includes(m)||m===r){
+      const lbl=document.createElement("div");
+      Object.assign(lbl.style,{position:"absolute",bottom:"6px",left:"50%",
+        transform:"translateX(-50%)",fontSize:"10px",fontWeight:"500",
+        color:fgFor(m),whiteSpace:"nowrap",pointerEvents:"none"});
+      lbl.textContent=nn(m);el.appendChild(lbl);
+    }
+    el.addEventListener("click",()=>playKey(m));
+    kb.appendChild(el);
+  });
+
+  BMIDI.forEach(m=>{
+    const el=document.createElement("div");
+    el.dataset.midi=m;
+    Object.assign(el.style,{position:"absolute",left:bpos[m]+"px",top:"0",
+      width:BW+"px",height:BH+"px",background:bgFor(m),
+      borderRadius:"0 0 3px 3px",cursor:"pointer",zIndex:"2",transition:"background .15s"});
+    if(cm.includes(m)||m===r){
+      const lbl=document.createElement("div");
+      Object.assign(lbl.style,{position:"absolute",bottom:"4px",left:"50%",
+        transform:"translateX(-50%)",fontSize:"9px",fontWeight:"500",
+        color:"white",whiteSpace:"nowrap",pointerEvents:"none"});
+      lbl.textContent=nn(m);el.appendChild(lbl);
+    }
+    el.addEventListener("click",()=>playKey(m));
+    kb.appendChild(el);
+  });
+}
+
+function buildNoteInfo(){
+  const c=CHORDS[sChord],r=KEY_ROOT[sKey];
+  const cm=c.chord.map(i=>r+i).map(nn).join(" · ");
+  const sm=c.scale.map(i=>r+i).map(nn).join(" · ");
+  document.getElementById("note-info").innerHTML=`
+    <div class="ni-row">
+      <span class="ni-label" style="color:${c.color}">Acorde:</span>
+      <span class="ni-notes" style="color:${c.color}">${cm}</span>
+    </div>
+    <div class="ni-row">
+      <span class="ni-label" style="color:var(--sub)">Escala (${c.sname}):</span>
+      <span class="ni-notes" style="color:var(--sub)">${sm}</span>
+    </div>
+    <div class="ni-ext">Extensiones: ${c.ext}</div>`;
+}
+
+function buildSelectors(){
+  const c=CHORDS[sChord];
+  const kb=document.getElementById("key-btns");
+  kb.innerHTML="";
+  JAZZ_KEYS.forEach(k=>{
+    const b=document.createElement("button");
+    b.className="sel-btn"+(k===sKey?" active":"");
+    b.textContent=k;
+    if(k===sKey){b.style.borderColor=c.color;b.style.background=c.bg;b.style.color=c.color;}
+    b.onclick=()=>{sKey=k;render();};
+    kb.appendChild(b);
+  });
+  const cb=document.getElementById("chord-btns");
+  cb.innerHTML="";
+  Object.entries(CHORDS).forEach(([k,v])=>{
+    const b=document.createElement("button");
+    b.className="chord-btn"+(k===sChord?" active":"");
+    b.textContent=v.label;
+    if(k===sChord){b.style.borderColor=v.color;b.style.background=v.bg;b.style.color=v.color;}
+    b.onclick=()=>{sChord=k;render();};
+    cb.appendChild(b);
+  });
+}
+
+function buildHeader(){
+  const c=CHORDS[sChord];
+  document.getElementById("chord-name").innerHTML=
+    `<span style="color:${c.color}">${sKey}${c.sym}</span>`;
+  document.getElementById("chord-formula").textContent=c.formula;
+  document.getElementById("chord-feel").textContent=c.feel;
+}
+
+const ACTIONS=[
+  {id:"ch",  emoji:"🎹", label:"Acorde",      fn:()=>playNotes(chordN(),true)},
+  {id:"ar",  emoji:"⬆",  label:"Arpegio ↑",   fn:()=>playNotes(chordN())},
+  {id:"aud", emoji:"↕",  label:"Arpegio ↕",   fn:()=>{const m=chordN();playNotes([...m,...[...m].reverse().slice(1)]);}},
+  {id:"gt",  emoji:"🎯", label:"Guide tones", fn:()=>playNotes(guideN())},
+  {id:"sc",  emoji:"🎵", label:"Escala ↑",    fn:()=>playNotes(scaleN())},
+  {id:"scd", emoji:"🎵", label:"Escala ↕",    fn:()=>{const m=scaleN();playNotes([...m,...[...m].reverse().slice(1)]);}},
+];
+
+function buildPlayBtns(){
+  const c=CHORDS[sChord];
+  const el=document.getElementById("play-btns");
+  el.innerHTML="";
+  ACTIONS.forEach(({id,emoji,label,fn})=>{
+    const b=document.createElement("button");
+    b.id="pb-"+id;
+    b.className="play-btn";
+    b.innerHTML=`${emoji} ${label}`;
+    b.style.borderColor=c.color+"66";
+    b.style.background=c.bg;
+    b.style.color=c.color;
+    b.onclick=fn;
+    el.appendChild(b);
+  });
+  const stop=document.createElement("button");
+  stop.id="pb-stop";
+  stop.className="stop-btn";
+  stop.innerHTML="⏹ Parar";
+  stop.onclick=stopAll;
+  el.appendChild(stop);
+}
+
+function updBtns(){
+  document.querySelectorAll(".play-btn").forEach(b=>{
+    b.disabled=isPlaying;b.style.cursor=isPlaying?"not-allowed":"pointer";
+  });
+  const s=document.getElementById("pb-stop");
+  if(s)s.style.display=isPlaying?"inline-flex":"none";
+}
+
+document.getElementById("spd").addEventListener("input",e=>{
+  spd=+e.target.value;
+  document.getElementById("spd-lbl").textContent=spd<300?"Rápido":spd<550?"Medio":"Lento";
+});
+
+function render(){buildHeader();buildSelectors();buildKb();buildNoteInfo();buildPlayBtns();updBtns();}
+render();
+</script>
+</body>
+</html>
