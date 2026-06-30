@@ -20,8 +20,6 @@
 }
 html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text)}
 .app{max-width:880px;margin:0 auto;padding:20px 16px 60px}
-
-/* HEADER */
 .header{margin-bottom:16px}
 .header-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px;flex-wrap:wrap}
 .header h1{font-family:'Playfair Display',serif;font-size:23px;font-weight:700;line-height:1.2}
@@ -35,14 +33,10 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
 .stats-row{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--sub);font-weight:500}
 .stat{display:flex;align-items:center;gap:4px}
 .stat-dot{width:7px;height:7px;border-radius:50%}
-
-/* TABS */
 .tabs{display:flex;gap:0;margin-bottom:16px;border-bottom:2px solid var(--border)}
 .tab-btn{padding:9px 18px;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s}
 .tab-btn:hover{color:var(--sub)}
 .tab-btn.active{color:var(--text);font-weight:600;border-bottom-color:#1C1917}
-
-/* TERRITORY FILTERS */
 .terr-scroll{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:9px}
 .terr-btn{display:flex;align-items:center;gap:4px;padding:5px 11px;border-radius:20px;border:1.5px solid var(--border);background:white;color:var(--sub);font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;cursor:pointer;transition:all .13s;white-space:nowrap;user-select:none}
 .terr-btn:hover{border-color:#C9C5BF}
@@ -51,16 +45,16 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
 .terr-banner{display:flex;align-items:center;gap:8px;padding:9px 13px;border-radius:8px;margin-bottom:10px;font-size:13px}
 .terr-banner strong{font-weight:600}
 .terr-desc{opacity:.75}
-
-/* SEARCH */
+.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.filter-btn{padding:4px 10px;border-radius:14px;border:1.5px solid var(--border);background:white;color:var(--sub);font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;cursor:pointer;transition:all .13s}
+.filter-btn:hover{border-color:var(--muted)}
+.filter-btn.active{background:#1C1917;color:white;border-color:#1C1917}
 .search-wrap{position:relative;margin-bottom:9px}
 .search-wrap input{width:100%;padding:9px 36px;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-family:'DM Sans',sans-serif;background:white;outline:none;color:var(--text);transition:border-color .15s}
 .search-wrap input:focus{border-color:var(--muted)}
 .search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px;pointer-events:none}
 .search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted);font-size:15px;padding:2px 4px}
 .results-count{font-size:11px;color:var(--muted);margin-bottom:7px}
-
-/* SONG CARDS */
 .song-list{display:flex;flex-direction:column;gap:4px}
 .song-card{border:1px solid var(--border);border-radius:10px;background:white;overflow:hidden;transition:box-shadow .15s}
 .song-card:hover{box-shadow:0 1px 8px rgba(0,0,0,.06)}
@@ -74,15 +68,16 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
 .badge-orig{color:#6D28D9}
 .badge-user{color:#0369A1}
 .badge-impro{color:#059669}
+.badge-uptempo{color:#C2410C}
+.badge-short{color:#0369A1}
 .song-key{font-size:11px;color:var(--muted);flex-shrink:0;font-weight:500;min-width:20px;text-align:right}
 .style-tag{font-size:10px;padding:2px 6px;border-radius:9px;background:#F3F0EA;color:var(--sub);flex-shrink:0;font-weight:500;white-space:nowrap}
+.uptempo-tag{font-size:10px;padding:2px 6px;border-radius:9px;background:#FFF7ED;color:#C2410C;flex-shrink:0;font-weight:600;white-space:nowrap}
 .tempo-pip{font-size:10px;padding:2px 6px;border-radius:9px;flex-shrink:0;font-weight:600}
 .tempo-pip.ballad{background:#EEF2FF;color:#3730A3}
 .tempo-pip.medium{background:#FFF7ED;color:#C2410C}
 .tempo-pip.up{background:#ECFDF5;color:#047857}
 .terr-emoji{font-size:13px;flex-shrink:0}
-
-/* SONG DETAIL */
 .song-detail{padding:10px 12px 13px;border-top:1px solid var(--border);animation:slideDown .15s ease}
 @keyframes slideDown{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
 .detail-section{margin-bottom:11px}
@@ -92,19 +87,16 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
 .pill-btn{padding:4px 11px;border-radius:6px;border:1.5px solid var(--border);background:white;font-family:'DM Sans',sans-serif;font-size:11.5px;cursor:pointer;transition:all .12s;color:var(--sub);font-weight:400}
 .pill-btn:hover{border-color:var(--muted)}
 .pill-btn.active{font-weight:600}
-
-/* Impro toggle */
-.impro-toggle{display:flex;align-items:center;gap:7px;padding:5px 11px;border-radius:6px;border:1.5px solid var(--border);background:white;font-family:'DM Sans',sans-serif;font-size:11.5px;cursor:pointer;transition:all .12s;color:var(--sub)}
-.impro-toggle.active{border-color:#059669;background:#ECFDF5;color:#047857;font-weight:600}
-
-/* Editable inline fields */
+.toggle-btn{display:flex;align-items:center;gap:7px;padding:4px 11px;border-radius:6px;border:1.5px solid var(--border);background:white;font-family:'DM Sans',sans-serif;font-size:11.5px;cursor:pointer;transition:all .12s;color:var(--sub)}
+.toggle-btn.active-green{border-color:#059669;background:#ECFDF5;color:#047857;font-weight:600}
+.toggle-btn.active-orange{border-color:#C2410C;background:#FFF7ED;color:#C2410C;font-weight:600}
+.toggle-btn.active-blue{border-color:#0369A1;background:#F0F9FF;color:#0369A1;font-weight:600}
 .edit-row{display:flex;gap:8px;margin-bottom:11px}
 .edit-field{flex:1}
 .edit-field label{display:block;font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
 .edit-input{width:100%;padding:7px 9px;border:1.5px solid var(--border);border-radius:7px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--text);background:#FAFAF7;outline:none;transition:border-color .15s}
 .edit-input:focus{border-color:var(--muted);background:white}
 .edit-input::placeholder{color:#C4BFBA}
-
 .anchor-input{width:100%;padding:7px 9px;border:1.5px solid var(--border);border-radius:7px;font-size:12px;font-family:'DM Sans',sans-serif;font-style:italic;color:var(--text);background:#FAFAF7;outline:none;transition:border-color .15s}
 .anchor-input:focus{border-color:var(--muted);background:white}
 .anchor-input::placeholder{color:#C4BFBA}
@@ -115,10 +107,6 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
 .delete-btn{display:flex;align-items:center;gap:5px;margin-top:8px;padding:5px 10px;border-radius:6px;border:1px solid #FCA5A5;background:#FFF5F5;color:#B91C1C;font-family:'DM Sans',sans-serif;font-size:11px;cursor:pointer;transition:all .12s}
 .delete-btn:hover{background:#FEE2E2}
 .empty{text-align:center;padding:40px 20px;color:var(--muted);font-size:14px}
-
-/* ═══════════════════════════════════════════
-   SET BUILDER
-═══════════════════════════════════════════ */
 .sb-wrap{padding-top:4px}
 .sb-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;padding:14px;background:white;border:1px solid var(--border);border-radius:12px}
 .sb-controls-label{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-right:4px}
@@ -127,10 +115,9 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
 .sb-status-btn.active{background:#1C1917;color:white;font-weight:600}
 .btn-generate{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:#C0392B;color:white;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;margin-left:auto}
 .btn-generate:hover{background:#A93226}
-
 .sb-slots{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
-@media(max-width:560px){.sb-slots{grid-template-columns:1fr}}
-
+.sb-slot-ballad{grid-column:1/-1}
+@media(max-width:560px){.sb-slots{grid-template-columns:1fr}.sb-slot-ballad{grid-column:auto}}
 .slot-card{border:1.5px solid var(--border);border-radius:12px;background:white;overflow:hidden;transition:all .2s}
 .slot-card.has-song{border-color:transparent;box-shadow:0 2px 12px rgba(0,0,0,.07)}
 .slot-header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px 8px;border-bottom:1px solid var(--border)}
@@ -148,7 +135,6 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
 .slot-song-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .slot-key{font-size:11px;color:var(--muted);font-weight:500}
 .slot-terr{font-size:12px}
-
 .sb-balance{display:flex;align-items:center;gap:8px;margin-bottom:14px;padding:10px 14px;background:white;border:1px solid var(--border);border-radius:10px;flex-wrap:wrap}
 .sb-balance-label{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 .sb-balance-pills{display:flex;gap:5px;flex-wrap:wrap}
@@ -156,7 +142,6 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
 .sb-copy{padding:8px 16px;border-radius:8px;border:1.5px solid var(--border);background:white;font-family:'DM Sans',sans-serif;font-size:12.5px;cursor:pointer;color:var(--text);transition:all .13s;margin-left:auto}
 .sb-copy:hover{background:var(--hover)}
 .sb-copy.copied{background:#ECFDF5;border-color:#A7F3D0;color:#047857}
-
 .sb-extras{margin-top:4px}
 .sb-extras-title{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
 .sb-extra-list{display:flex;flex-direction:column;gap:4px}
@@ -167,10 +152,6 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
 .sb-extra-title{font-size:13px;font-weight:500}
 .sb-extra-check{width:18px;height:18px;border-radius:4px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .12s}
 .sb-extra-check.on{background:#1C1917;border-color:#1C1917;color:white;font-size:11px}
-
-/* ═══════════════════════════════════════════
-   MODALS
-═══════════════════════════════════════════ */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;z-index:200;padding:16px;animation:fadeIn .15s ease}
 .modal-overlay.hidden{display:none}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -182,7 +163,7 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
 .form-input{width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:7px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--text);background:#FAFAF7;outline:none;transition:border-color .15s}
 .form-input:focus{border-color:var(--muted);background:white}
 .form-terr-grid{display:flex;flex-wrap:wrap;gap:5px}
-.form-terr-btn{padding:5px 10px;border-radius:7px;border:1.5px solid var(--border);background:white;font-family:'DM Sans',sans-serif;font-size:11px;cursor:pointer;transition:all .12s;color:var(--sub)}
+.form-terr-btn{padding:5px 10px;border-radius:7px;border:1.5px solid var(--border);background:white;font-family:'DM Sans',sans-serif;font-size:11px;cursor:pointer;transition:all .12px;color:var(--sub)}
 .form-terr-btn:hover{border-color:var(--muted)}
 .form-terr-btn.active{font-weight:600}
 .form-check{display:flex;align-items:center;gap:8px;margin-top:4px;cursor:pointer}
@@ -206,13 +187,7 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
 .io-msg{font-size:11.5px;margin-top:5px}
 .io-msg.ok{color:#047857}
 .io-msg.err{color:#B91C1C}
-
-@media(max-width:500px){
-  .style-tag{display:none}
-  .header h1{font-size:20px}
-  .header-actions{width:100%}
-  .btn-dark,.btn-outline{flex:1;justify-content:center}
-}
+@media(max-width:500px){.style-tag{display:none}.header h1{font-size:20px}.header-actions{width:100%}.btn-dark,.btn-outline{flex:1;justify-content:center}}
 </style>
 </head>
 <body>
@@ -227,16 +202,14 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
     </div>
     <div class="stats-row" id="statsRow"></div>
   </div>
-
   <div class="tabs">
     <button class="tab-btn active" data-tab="repertorio">🎵 Repertorio</button>
     <button class="tab-btn" data-tab="setbuilder">🎼 Set Builder</button>
   </div>
-
-  <!-- TAB: REPERTORIO -->
   <div id="tab-repertorio">
     <div class="terr-scroll" id="terrFilters"></div>
     <div id="terrBanner"></div>
+    <div class="filter-row" id="filterRow"></div>
     <div class="search-wrap">
       <span class="search-icon">⌕</span>
       <input type="text" id="searchInput" placeholder="Buscar canción o estilo…"/>
@@ -245,8 +218,6 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
     <div class="results-count" id="resultsCount"></div>
     <div class="song-list" id="songList"></div>
   </div>
-
-  <!-- TAB: SET BUILDER -->
   <div id="tab-setbuilder" style="display:none">
     <div class="sb-wrap">
       <div class="sb-controls">
@@ -259,201 +230,130 @@ html,body{min-height:100vh;background:var(--bg);font-family:'DM Sans',sans-serif
         </div>
         <button class="btn-generate" id="btnGenerate">🎲 Generar set</button>
       </div>
-
       <div class="sb-slots" id="sbSlots"></div>
       <div class="sb-balance" id="sbBalance" style="display:none"></div>
-
       <div class="sb-extras" id="sbExtras"></div>
     </div>
   </div>
 </div>
-
-<!-- ADD SONG MODAL -->
+<button class="btn-outline" id="fabBtn" style="position:fixed;bottom:20px;right:20px;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)">+ Agregar</button>
 <div class="modal-overlay hidden" id="addModal">
   <div class="modal">
     <h2>Agregar canción</h2>
-    <div class="form-row">
-      <label class="form-label">Título *</label>
-      <input class="form-input" id="fTitle" placeholder="ej. Stardust"/>
-      <div class="form-error" id="fTitleErr"></div>
-    </div>
+    <div class="form-row"><label class="form-label">Título *</label><input class="form-input" id="fTitle" placeholder="ej. Stardust"/><div class="form-error" id="fTitleErr"></div></div>
     <div style="display:flex;gap:10px">
-      <div class="form-row" style="flex:1">
-        <label class="form-label">Tonalidad</label>
-        <input class="form-input" id="fKey" placeholder="ej. Bb"/>
-      </div>
-      <div class="form-row" style="flex:1">
-        <label class="form-label">Estilo / Tag</label>
-        <input class="form-input" id="fStyle" placeholder="ej. Bossa, Tango…"/>
-      </div>
+      <div class="form-row" style="flex:1"><label class="form-label">Tonalidad</label><input class="form-input" id="fKey" placeholder="ej. Bb"/></div>
+      <div class="form-row" style="flex:1"><label class="form-label">Estilo / Tag</label><input class="form-input" id="fStyle" placeholder="ej. Bossa, Ballad…"/></div>
     </div>
-    <div class="form-row">
-      <label class="form-label">Territorio *</label>
-      <div class="form-terr-grid" id="formTerrGrid"></div>
-      <div class="form-error" id="fTerrErr"></div>
-    </div>
-    <div class="form-row">
-      <label class="form-check">
-        <input type="checkbox" id="fOrig"/>
-        <span>Composición propia / arreglo original</span>
-      </label>
-    </div>
-    <div class="modal-btns">
-      <button class="btn-cancel" id="btnCancelAdd">Cancelar</button>
-      <button class="btn-primary" id="btnConfirmAdd">Agregar</button>
-    </div>
+    <div class="form-row"><label class="form-label">Territorio *</label><div class="form-terr-grid" id="formTerrGrid"></div><div class="form-error" id="fTerrErr"></div></div>
+    <div class="form-row"><label class="form-check"><input type="checkbox" id="fOrig"/><span>Composición propia / arreglo original</span></label></div>
+    <div class="modal-btns"><button class="btn-cancel" id="btnCancelAdd">Cancelar</button><button class="btn-primary" id="btnConfirmAdd">Agregar</button></div>
   </div>
 </div>
-
-<!-- IO MODAL -->
 <div class="modal-overlay hidden" id="ioModal">
   <div class="modal">
     <h2>💾 Exportar / Importar</h2>
-    <div class="io-section">
-      <p>Exportá todos tus datos como respaldo o para usar en otro dispositivo.</p>
-      <div style="display:flex;gap:8px;align-items:center">
-        <button class="btn-export" id="btnExport">⬇ Exportar datos</button>
-        <span style="font-size:12px;color:var(--muted)" id="exportMsg"></span>
-      </div>
-    </div>
+    <div class="io-section"><p>Exportá todos tus datos como respaldo.</p><div style="display:flex;gap:8px;align-items:center"><button class="btn-export" id="btnExport">⬇ Exportar datos</button><span style="font-size:12px;color:var(--muted)" id="exportMsg"></span></div></div>
     <hr class="io-divider">
-    <div class="io-section">
-      <p>Pegá aquí el JSON exportado. <strong>Reemplaza los datos actuales.</strong></p>
-      <textarea class="io-textarea" id="ioImportText" placeholder='Pegá el JSON aquí…'></textarea>
-      <div style="display:flex;gap:8px;align-items:center;margin-top:7px">
-        <button class="btn-import" id="btnImport">⬆ Importar datos</button>
-        <span class="io-msg" id="importMsg"></span>
-      </div>
-    </div>
-    <div class="modal-btns">
-      <button class="btn-cancel" id="btnCloseIO" style="flex:1">Cerrar</button>
-    </div>
+    <div class="io-section"><p>Pegá aquí el JSON exportado. <strong>Reemplaza los datos actuales.</strong></p><textarea class="io-textarea" id="ioImportText" placeholder="Pegá el JSON aquí…"></textarea><div style="display:flex;gap:8px;align-items:center;margin-top:7px"><button class="btn-import" id="btnImport">⬆ Importar datos</button><span class="io-msg" id="importMsg"></span></div></div>
+    <div class="modal-btns"><button class="btn-cancel" id="btnCloseIO" style="flex:1">Cerrar</button></div>
   </div>
 </div>
-
 <script>
-// ════════════════════════════════════════════════════════
-//  CONSTANTS
-// ════════════════════════════════════════════════════════
-const TERRITORIES=[
-  {id:"ALL",name:"Todas",     emoji:"🎼",color:"#78716C",bg:"#F7F5F0",border:"#E7E5E0",desc:""},
-  {id:"T1", name:"DESEO",     emoji:"🔥",color:"#C0392B",bg:"#FDF2F2",border:"#F5C6C2",desc:"Seducción · anhelo · tensión"},
-  {id:"T2", name:"PÉRDIDA",   emoji:"🌙",color:"#3730A3",bg:"#F0F0FF",border:"#C7C8F5",desc:"Nostalgia · memoria · ausencia"},
-  {id:"T3", name:"IRONÍA",    emoji:"✨",color:"#B45309",bg:"#FFFBEB",border:"#FDE68A",desc:"Ingenio · elegancia · distancia"},
-  {id:"T4", name:"GROOVE",    emoji:"🎵",color:"#047857",bg:"#ECFDF5",border:"#A7F3D0",desc:"Alegría · swing · celebración"},
-  {id:"T5", name:"FRAGILIDAD",emoji:"💧",color:"#6D28D9",bg:"#F5F3FF",border:"#DDD6FE",desc:"Vulnerabilidad · exposición"},
-  {id:"T6", name:"PODER",     emoji:"⚡",color:"#C2410C",bg:"#FFF7ED",border:"#FED7AA",desc:"Fuerza · afirmación · dignidad"},
-  {id:"T7", name:"ENSOÑACIÓN",emoji:"☁️",color:"#0369A1",bg:"#F0F9FF",border:"#BAE6FD",desc:"Sueño · maravilla · otro mundo"},
-];
-const STATUS={
-  nueva:      {label:"Nueva",      dot:"#D6D3D1",color:"#78716C",bg:"#F7F5F0",border:"#E7E5E0"},
-  trabajando: {label:"Trabajando", dot:"#D97706", color:"#B45309",bg:"#FFFBEB",border:"#FDE68A"},
-  perla:      {label:"⭐ Perla",   dot:"#059669", color:"#047857",bg:"#ECFDF5",border:"#A7F3D0"},
-};
-const TEMPO={
-  ballad:{label:"Ballad",pip:"ballad",short:"🎻"},
-  medium:{label:"Medium",pip:"medium",short:"⚡"},
-  up:    {label:"Up",    pip:"up",    short:"🚀"},
-};
-const SLOTS=[
-  {id:"arrangement",label:"Arrangement",emoji:"🎼",desc:"Arreglo / medley"},
-  {id:"latino",     label:"Latino",     emoji:"🌎",desc:"Bossa · Tango · Zamba · Bolero"},
-  {id:"swing",      label:"Swing",      emoji:"🎷",desc:"Standard / bebop"},
-  {id:"blues",      label:"Blues",      emoji:"🎹",desc:"Con tinte bluesero"},
-];
-
 const BASE_SONGS=[
-  {t:"Adagietto to my mother",k:"C",s:"Original",terr:"T5",orig:true},
-  {t:"A felicidade",k:"Am",s:"Bossa",terr:"T4"},
+  {t:"Adagietto to my mother",k:"C",s:"Original/Arrangement",terr:"T5",orig:true,tested:true},
+  {t:"A felicidade",k:"Am",s:"Bossa",terr:"T4",tested:true},
   {t:"A fine romance",k:"F",s:"",terr:"T3"},
   {t:"A foggy day",k:"D",s:"",terr:"T7"},
   {t:"A kiss to build a dream on",k:"G",s:"",terr:"T7"},
-  {t:"A night in Tunisia",k:"Bbm",s:"",terr:"T4"},
+  {t:"A night in Tunisia",k:"Bbm",s:"",terr:"T4",tested:true},
   {t:"Ac-Cent-Tchu-Ate The Positive",k:"Eb",s:"",terr:"T3"},
-  {t:"After you've gone",k:"C",s:"",terr:"T6"},
-  {t:"Agitando pañuelos",k:"Fm",s:"Zamba",terr:"T2"},
-  {t:"Agua de beber",k:"Dm",s:"Bossa",terr:"T1"},
+  {t:"After you've gone",k:"C",s:"Uptempo",terr:"T6",uptempo:true},
+  {t:"Agitando pa\u00f1uelos",k:"Fm",s:"Zamba",terr:"T2",tested:true},
+  {t:"Agua de beber",k:"Dm",s:"Bossa",terr:"T1",tested:true},
   {t:"Ain't Misbehavin'",k:"Ab",s:"",terr:"T3"},
   {t:"Ain't She Sweet",k:"G",s:"",terr:"T3"},
   {t:"Alexander's Ragtime Band",k:"Bb",s:"",terr:"T4"},
-  {t:"Alfonsina y el mar",k:"Fm",s:"Zamba",terr:"T5"},
-  {t:"Algo contigo",k:"Bb",s:"Bolero",terr:"T1"},
-  {t:"Algo contigo",k:"B",s:"Bolero",terr:"T1"},
+  {t:"Alfonsina y el mar",k:"Fm",s:"Zamba",terr:"T5",tested:true},
+  {t:"Algo contigo",k:"Bb",s:"Bolero",terr:"T1",tested:true},
+  {t:"Algo contigo",k:"B",s:"Bolero",terr:"T1",tested:true},
   {t:"Alice in wonderland",k:"C",s:"",terr:"T7"},
   {t:"All the things you are",k:"D",s:"",terr:"T7"},
   {t:"All of Me",k:"G",s:"",terr:"T3"},
-  {t:"Alma, corazón y vida",k:"F#m",s:"Vals",terr:"T1"},
+  {t:"Alma, coraz\u00f3n y vida",k:"F#m",s:"Vals",terr:"T1",tested:true},
   {t:"Angel Eyes",k:"Am",s:"",terr:"T5"},
   {t:"Anything goes",k:"Ab",s:"",terr:"T3"},
   {t:"As time goes by",k:"G",s:"",terr:"T2"},
   {t:"Autumn Leaves",k:"Cm",s:"",terr:"T2"},
-  {t:"Balderrama",k:"Bbm",s:"Zamba",terr:"T2"},
+  {t:"Balderrama",k:"Bbm",s:"Zamba",terr:"T2",tested:true},
   {t:"Basin Street Blues",k:"Ab",s:"Blues",terr:"T4"},
   {t:"Beautiful love",k:"Bbm",s:"",terr:"T5"},
-  {t:"Bei mir bis du schön",k:"Cm",s:"",terr:"T3"},
-  {t:"Besame mucho",k:"Am",s:"Bolero",terr:"T1"},
+  {t:"Bei mir bis du sch\u00f6n",k:"Cm",s:"",terr:"T3"},
+  {t:"Besame mucho",k:"Am",s:"Bolero",terr:"T1",tested:true},
   {t:"Between the devil and the deep blue sea",k:"A",s:"",terr:"T3"},
-  {t:"Bewitched, Bothered and Bewildered",k:"F",s:"",terr:"T1"},
+  {t:"Bewitched, Bothered and Bewildered",k:"F",s:"Walking Ballad",terr:"T1",tested:true},
   {t:"Black coffee",k:"D",s:"",terr:"T5"},
-  {t:"Blame it on my youth",k:"Ab",s:"",terr:"T5"},
-  {t:"Blossom's Blues",k:"Bb",s:"Blues",terr:"T4"},
+  {t:"Blame it on my youth",k:"Ab",s:"Walking Ballad",terr:"T5",tested:true},
+  {t:"Blossom's Blues",k:"Bb",s:"Blues",terr:"T4",tested:true},
   {t:"Blue",k:"Bm",s:"",terr:"T5"},
   {t:"Blue Moon",k:"C",s:"",terr:"T7"},
   {t:"Blue Skies",k:"C",s:"",terr:"T4"},
   {t:"Blues in the night",k:"Eb",s:"Blues",terr:"T2"},
-  {t:"Body and Soul",k:"F",s:"",terr:"T1"},
-  {t:"Both sides now",k:"Gb",s:"",terr:"T2"},
-  {t:"But beautiful",k:"Bb",s:"",terr:"T7"},
+  {t:"Body and Soul",k:"F",s:"Walking Ballad",terr:"T1",tested:true},
+  {t:"Both sides now",k:"Gb",s:"Pop",terr:"T2",tested:true},
+  {t:"But beautiful",k:"Bb",s:"Ballad",terr:"T7",tested:true},
   {t:"But not for me",k:"Bb",s:"",terr:"T3"},
   {t:"Bye bye blackbird",k:"C",s:"",terr:"T2"},
   {t:"Call me irresponsible",k:"F",s:"",terr:"T3"},
-  {t:"Canción y Huayno",k:"Am",s:"Huayno",terr:"T2"},
+  {t:"Canci\u00f3n de las Simples Cosas",k:"",s:"Canci\u00f3n/Bolero",terr:"T2",tested:true},
+  {t:"Canci\u00f3n y Huayno",k:"Am",s:"Huayno",terr:"T2",tested:true},
   {t:"Candy",k:"E",s:"",terr:"T3"},
   {t:"Can't get out of this mood",k:"G",s:"",terr:"T1"},
-  {t:"Cantora de Yala",k:"F",s:"Zamba",terr:"T6"},
-  {t:"Capullito de Alelí",k:"C",s:"Son Montuno",terr:"T4"},
-  {t:"Caravan",k:"Fm",s:"Latin",terr:"T4"},
-  {t:"Chan chan",k:"Fm",s:"Son Cubano",terr:"T2"},
+  {t:"Cantora de Yala",k:"F",s:"Zamba",terr:"T6",tested:true},
+  {t:"Capullito de Alel\u00ed",k:"C",s:"Son Montuno",terr:"T4",tested:true},
+  {t:"Caravan",k:"Fm",s:"Latin",terr:"T4",tested:true},
+  {t:"Chan chan",k:"Fm",s:"Son Cubano",terr:"T2",tested:true},
   {t:"Cheek to cheek",k:"G",s:"",terr:"T4"},
-  {t:"Chega de Saudade",k:"Dm",s:"Bossa",terr:"T2"},
+  {t:"Chega de Saudade",k:"Dm",s:"Bossa",terr:"T2",tested:true},
   {t:"Close to you",k:"C",s:"",terr:"T7"},
   {t:"Come fly with me",k:"F",s:"",terr:"T4"},
-  {t:"Contigo en la distancia",k:"G",s:"Bolero",terr:"T1"},
-  {t:"Corcovado",k:"C",s:"Bossa",terr:"T7"},
-  {t:"Cry me a river",k:"Bb",s:"",terr:"T6"},
-  {t:"Cucurrucucú Paloma",k:"Eb",s:"Waltz",terr:"T5"},
-  {t:"Darn that dream",k:"D",s:"",terr:"T7"},
+  {t:"Contigo en la distancia",k:"G",s:"Bolero",terr:"T1",tested:true},
+  {t:"Corcovado",k:"C",s:"Bossa",terr:"T7",tested:true},
+  {t:"Cry me a river",k:"Bb",s:"Ballad",terr:"T6",tested:true},
+  {t:"Cucurrucuc\u00fa Paloma",k:"Eb",s:"Waltz",terr:"T5",tested:true},
+  {t:"Darn that dream",k:"D",s:"Ballad",terr:"T7",tested:true},
   {t:"Dat dere",k:"Am",s:"",terr:"T5"},
   {t:"Days of wine and roses",k:"Bb",s:"",terr:"T2"},
-  {t:"Dedicated to you",k:"Eb",s:"",terr:"T5"},
+  {t:"Dedicated to you",k:"Eb",s:"Ballad",terr:"T5",tested:true},
   {t:"Deed I do",k:"G",s:"",terr:"T3"},
-  {t:"Dejame que me vaya",k:"Cm",s:"Chacarera",terr:"T6"},
-  {t:"Desafinado",k:"Eb",s:"Bossa",terr:"T3"},
+  {t:"Dejame que me vaya",k:"Cm",s:"Chacarera",terr:"T6",tested:true},
+  {t:"Desafinado",k:"Eb",s:"Bossa",terr:"T3",tested:true},
   {t:"Destination Moon",k:"F",s:"",terr:"T7"},
-  {t:"Dindi",k:"C",s:"Bossa",terr:"T7"},
+  {t:"Dindi",k:"C",s:"Bossa",terr:"T7",tested:true},
   {t:"Do nothing till you hear from me",k:"C",s:"",terr:"T3"},
   {t:"Do you know what it means?",k:"F",s:"",terr:"T2"},
-  {t:"Don't explain",k:"Bbm",s:"",terr:"T5"},
+  {t:"Don't explain",k:"Bbm",s:"Walking Ballad",terr:"T5",tested:true},
   {t:"Don't get around much anymore",k:"Ab",s:"",terr:"T2"},
-  {t:"Dos Gardenias",k:"Gm",s:"Bolero",terr:"T1"},
+  {t:"Dos Gardenias",k:"Gm",s:"Bolero",terr:"T1",tested:true},
   {t:"Doxy",k:"Eb",s:"",terr:"T4"},
   {t:"Dream a little dream of me",k:"C",s:"",terr:"T7"},
   {t:"Easy living",k:"G",s:"",terr:"T7"},
   {t:"Easy to love",k:"F",s:"",terr:"T5"},
-  {t:"El día que me quieras",k:"Ab",s:"Tango/Bolero",terr:"T1"},
-  {t:"El Regalo",k:"Em",s:"Original/Aire de Zamba",terr:"T5",orig:true},
-  {t:"Embraceable you",k:"D",s:"",terr:"T1"},
-  {t:"Emily",k:"G",s:"",terr:"T7"},
-  {t:"Everytime we say goodbye",k:"A",s:"",terr:"T5"},
+  {t:"El d\u00eda que me quieras",k:"Ab",s:"Tango/Bolero",terr:"T1",tested:true},
+  {t:"El Regalo",k:"Em",s:"Original/Aire de Zamba",terr:"T5",orig:true,tested:true},
+  {t:"Embraceable you",k:"D",s:"Ballad",terr:"T1",tested:true},
+  {t:"Emily",k:"G",s:"Walking Ballad",terr:"T7",tested:true},
+  {t:"Estate",k:"",s:"Bossa",terr:"T7",tested:true},
+  {t:"Everytime we say goodbye",k:"A",s:"Ballad",terr:"T5",tested:true},
   {t:"Everything happens to me",k:"C",s:"",terr:"T3"},
   {t:"Fascinating rhythm",k:"Ab",s:"",terr:"T4"},
   {t:"Fever",k:"A",s:"",terr:"T1"},
   {t:"Fly me to the moon",k:"G",s:"",terr:"T1"},
-  {t:"For sentimental reasons",k:"Ab",s:"",terr:"T5"},
-  {t:"Garganta con arena",k:"A",s:"Tango",terr:"T6"},
-  {t:"Garota de Ipanema",k:"F",s:"Bossa",terr:"T1"},
+  {t:"For sentimental reasons",k:"Ab",s:"Ballad",terr:"T5",tested:true},
+  {t:"Garganta con arena",k:"A",s:"Tango",terr:"T6",tested:true},
+  {t:"Garota de Ipanema",k:"F",s:"Bossa",terr:"T1",tested:true},
   {t:"Gee baby, ain't I good to you",k:"Eb",s:"",terr:"T3"},
-  {t:"Georgia on my mind",k:"Bb",s:"Blues",terr:"T2"},
+  {t:"Georgia on my mind",k:"Bb",s:"Walking Ballad",terr:"T2",tested:true},
   {t:"Get Happy",k:"G",s:"",terr:"T4"},
   {t:"Give him the ooh-la-la",k:"C",s:"",terr:"T3"},
   {t:"Give me the simple life",k:"Bb",s:"",terr:"T3"},
@@ -463,169 +363,170 @@ const BASE_SONGS=[
   {t:"Guilty",k:"F",s:"",terr:"T5"},
   {t:"Have you met Miss Jones?",k:"Bb",s:"",terr:"T3"},
   {t:"Here, there and everywhere",k:"G",s:"",terr:"T7"},
-  {t:"Here's that rainy day",k:"A",s:"",terr:"T2"},
-  {t:"Here's to life",k:"Bb",s:"Arrangement",terr:"T6"},
+  {t:"Here's that rainy day",k:"A",s:"Walking Ballad",terr:"T2",tested:true},
+  {t:"Here's to life",k:"Bb",s:"Arrangement",terr:"T6",tested:true},
   {t:"Hit the road, Jack",k:"Bm",s:"",terr:"T6"},
   {t:"Honeysuckle Rose",k:"D",s:"",terr:"T4"},
   {t:"How deep is the ocean",k:"Ab",s:"",terr:"T1"},
   {t:"How high the moon",k:"Eb",s:"",terr:"T4"},
-  {t:"How Insensitive",k:"Am",s:"Bossa",terr:"T5"},
-  {t:"How long has this been going on?",k:"A",s:"",terr:"T1"},
+  {t:"How Insensitive",k:"Am",s:"Bossa",terr:"T5",tested:true},
+  {t:"How long has this been going on?",k:"A",s:"Walking Ballad",terr:"T1",tested:true},
   {t:"I can't give you anything but love",k:"D",s:"",terr:"T3"},
   {t:"I could have danced all night",k:"F",s:"",terr:"T4"},
   {t:"I could write a book",k:"G",s:"",terr:"T1"},
   {t:"I didn't know what time it was",k:"C",s:"",terr:"T7"},
-  {t:"I fall in love too easily",k:"Ab",s:"",terr:"T5"},
-  {t:"I feel pretty / I'm a brass band",k:"F",s:"Arrangement",terr:"T4"},
+  {t:"I fall in love too easily",k:"Ab",s:"Walking Ballad",terr:"T5",tested:true},
+  {t:"I feel pretty / I'm a brass band",k:"F",s:"Arrangement",terr:"T4",tested:true},
   {t:"I get a kick out of you",k:"Bb",s:"",terr:"T3"},
   {t:"I get along without you",k:"F",s:"",terr:"T5"},
-  {t:"I got it bad",k:"C",s:"Blues",terr:"T5"},
+  {t:"I got it bad",k:"C",s:"Walking Ballad",terr:"T5",tested:true},
   {t:"I got rhythm",k:"F",s:"",terr:"T4"},
   {t:"I let a song go out of my heart",k:"Ab",s:"",terr:"T2"},
-  {t:"I let a tear fall in the river",k:"",s:"",terr:"T5"},
-  {t:"I love being here with you",k:"Eb",s:"Arrangement",terr:"T4"},
+  {t:"I let a tear fall in the river",k:"",s:"Blues",terr:"T5"},
+  {t:"I love being here with you",k:"Eb",s:"Arrangement",terr:"T4",tested:true},
   {t:"I loves you, Porgy",k:"F",s:"Blues",terr:"T5"},
   {t:"I remember you",k:"Eb",s:"",terr:"T2"},
-  {t:"I walk a little faster",k:"Bb",s:"",terr:"T3"},
+  {t:"I walk a little faster",k:"Bb",s:"Walking Ballad",terr:"T3",tested:true},
   {t:"I wanna be loved by you",k:"E",s:"",terr:"T3"},
   {t:"I want to be happy",k:"Ab",s:"",terr:"T4"},
-  {t:"I wish I knew how it would feel to be free",k:"Bb",s:"Arrangement",terr:"T6"},
+  {t:"I wish I knew how it would feel to be free",k:"Bb",s:"Arrangement",terr:"T6",tested:true},
   {t:"I wish you love",k:"C",s:"",terr:"T6"},
   {t:"I won't dance",k:"Bb",s:"",terr:"T3"},
-  {t:"I'll be seeing you",k:"Ab",s:"",terr:"T2"},
+  {t:"I'll be seeing you",k:"Ab",s:"Ballad",terr:"T2",tested:true},
   {t:"I'm beginning to see the light",k:"Eb",s:"",terr:"T4"},
-  {t:"I'm glad there is you",k:"Ab",s:"",terr:"T5"},
-  {t:"I'm in the mood for love",k:"Ab",s:"",terr:"T1"},
+  {t:"I'm glad there is you",k:"Ab",s:"Ballad",terr:"T5",tested:true},
+  {t:"I'm in the mood for love",k:"Ab",s:"Ballad",terr:"T1",tested:true},
   {t:"I'm hip",k:"Eb",s:"",terr:"T3"},
-  {t:"I'm old fashioned",k:"Db",s:"Arrangement",terr:"T2"},
-  {t:"I've got a crush on you",k:"D",s:"",terr:"T1"},
+  {t:"I'm old fashioned",k:"Db",s:"Arrangement",terr:"T2",tested:true},
+  {t:"I've got a crush on you",k:"D",s:"Ballad",terr:"T1",tested:true},
   {t:"I've got my love to keep me warm",k:"Bb",s:"",terr:"T4"},
   {t:"I've got the world on a string",k:"Bb",s:"",terr:"T4"},
   {t:"I've got you under my skin",k:"Bb",s:"",terr:"T1"},
   {t:"If I were a bell",k:"C",s:"",terr:"T4"},
-  {t:"Ill wind",k:"Eb",s:"",terr:"T5"},
+  {t:"Ill wind",k:"Eb",s:"Walking Ballad",terr:"T5",tested:true},
   {t:"In a mellow tone",k:"Db",s:"",terr:"T7"},
   {t:"In a sentimental mood",k:"Em",s:"",terr:"T7"},
-  {t:"In the wee small hours of the morning",k:"A",s:"",terr:"T5"},
-  {t:"Invitation",k:"Cm",s:"",terr:"T7"},
+  {t:"In the wee small hours of the morning",k:"A",s:"Walking Ballad",terr:"T5",tested:true},
+  {t:"Invitation",k:"Cm",s:"",terr:"T7",tested:true},
   {t:"It ain't necessarily so",k:"Cm",s:"",terr:"T3"},
   {t:"It could happen to you",k:"Bb",s:"",terr:"T7"},
-  {t:"It don't mean a thing…",k:"D",s:"",terr:"T4"},
-  {t:"It never entered my mind",k:"B",s:"",terr:"T2"},
-  {t:"It's not easy being green",k:"G",s:"Arrangement",terr:"T5"},
+  {t:"It don't mean a thing\u2026",k:"D",s:"",terr:"T4"},
+  {t:"It never entered my mind",k:"B",s:"Ballad",terr:"T2",tested:true},
+  {t:"It's not easy being green",k:"G",s:"Arrangement",terr:"T5",tested:true},
   {t:"It's only a paper moon",k:"C",s:"",terr:"T3"},
   {t:"Jim",k:"D",s:"",terr:"T2"},
   {t:"Joy Spring",k:"D",s:"",terr:"T4"},
   {t:"Just friends",k:"Db",s:"",terr:"T2"},
-  {t:"Just one of those things",k:"Bb",s:"",terr:"T3"},
+  {t:"Just one of those things",k:"Bb",s:"Uptempo",terr:"T3",uptempo:true},
   {t:"Just squeeze me",k:"G",s:"",terr:"T4"},
   {t:"L.O.V.E.",k:"G",s:"",terr:"T3"},
   {t:"La Arenosa",k:"F#m",s:"",terr:"T2"},
-  {t:"La media vuelta",k:"Ab",s:"Bolero",terr:"T2"},
+  {t:"La media vuelta",k:"Ab",s:"Bolero",terr:"T2",tested:true},
   {t:"Lady be good",k:"Bb",s:"",terr:"T3"},
-  {t:"Las Golondrinas",k:"G",s:"Zamba",terr:"T2"},
-  {t:"Las Hojas",k:"F",s:"Original",terr:"T2",orig:true},
+  {t:"Las Golondrinas",k:"G",s:"Zamba",terr:"T2",tested:true},
+  {t:"Las Hojas",k:"F",s:"Original",terr:"T2",orig:true,tested:true},
   {t:"Let's call the whole thing off",k:"B",s:"",terr:"T3"},
   {t:"Let's do it (let's fall in love)",k:"Eb",s:"",terr:"T3"},
   {t:"Let's fall in love",k:"F",s:"",terr:"T3"},
   {t:"Like someone in love",k:"F",s:"",terr:"T7"},
-  {t:"Little green",k:"B",s:"",terr:"T5"},
-  {t:"Little Jazz bird",k:"Bb",s:"",terr:"T3"},
+  {t:"Little green",k:"B",s:"Pop",terr:"T5",tested:true},
+  {t:"Little Jazz bird",k:"Bb",s:"",terr:"T3",tested:true},
   {t:"Look for the silver lining",k:"Ab",s:"",terr:"T3"},
   {t:"Love for sale",k:"B",s:"",terr:"T1"},
   {t:"Love me or leave me",k:"Eb",s:"",terr:"T6"},
-  {t:"Love me tender",k:"D",s:"",terr:"T1"},
+  {t:"Love me tender",k:"D",s:"Walking Ballad",terr:"T1",tested:true},
   {t:"Lover man",k:"C",s:"",terr:"T5"},
   {t:"Lullaby of Birdland",k:"Eb",s:"",terr:"T4"},
   {t:"Lullaby of Broadway",k:"Bb",s:"",terr:"T4"},
-  {t:"Lullaby of the Leaves",k:"Gm",s:"Arrangement",terr:"T7"},
-  {t:"Luna Tucumana",k:"C",s:"Zamba",terr:"T2"},
-  {t:"Lush Life",k:"B",s:"",terr:"T2"},
+  {t:"Lullaby of the Leaves",k:"Gm",s:"Arrangement",terr:"T7",tested:true},
+  {t:"Luna Tucumana",k:"C",s:"Zamba",terr:"T2",tested:true},
+  {t:"Lush Life",k:"B",s:"Walking Ballad",terr:"T2",tested:true},
   {t:"Mack the knife",k:"G",s:"",terr:"T4"},
   {t:"Makin' Whoopee",k:"C",s:"",terr:"T3"},
   {t:"Manhattan",k:"Bb",s:"",terr:"T7"},
-  {t:"Mariposita",k:"Eb",s:"Tango",terr:"T3"},
-  {t:"Mas que nada",k:"Em",s:"Bossa",terr:"T4"},
+  {t:"Mariposita",k:"Eb",s:"Tango",terr:"T3",tested:true},
+  {t:"Mas que nada",k:"Em",s:"Bossa",terr:"T4",tested:true},
   {t:"Mean to me",k:"C",s:"",terr:"T5"},
-  {t:"Misty",k:"C",s:"",terr:"T7"},
+  {t:"Misty",k:"C",s:"Ballad",terr:"T7",tested:true},
   {t:"Moanin'",k:"Em",s:"Blues",terr:"T6"},
-  {t:"Mona Lisa",k:"A",s:"",terr:"T7"},
+  {t:"Mona Lisa",k:"A",s:"Ballad",terr:"T7",tested:true},
   {t:"Moonlight saving time",k:"Db",s:"",terr:"T7"},
-  {t:"Moonlight in Vermont",k:"C",s:"",terr:"T7"},
+  {t:"Moonlight in Vermont",k:"C",s:"Ballad",terr:"T7",tested:true},
   {t:"Moonlight serenade",k:"C",s:"",terr:"T7"},
-  {t:"Moon River",k:"A",s:"",terr:"T7"},
+  {t:"Moon River",k:"A",s:"Ballad",terr:"T7",tested:true},
   {t:"Mr. Paganini",k:"Eb",s:"",terr:"T4"},
   {t:"My baby just cares for me",k:"Db",s:"",terr:"T3"},
-  {t:"My foolish heart",k:"Eb",s:"",terr:"T5"},
-  {t:"My funny Valentine",k:"Bb",s:"",terr:"T5"},
+  {t:"My foolish heart",k:"Eb",s:"Ballad",terr:"T5",tested:true},
+  {t:"My funny Valentine",k:"Bb",s:"Ballad",terr:"T5",tested:true},
   {t:"My heart stood still",k:"C",s:"",terr:"T1"},
-  {t:"My one and only love",k:"Ab",s:"",terr:"T1"},
-  {t:"My way",k:"A",s:"",terr:"T6"},
-  {t:"Nada",k:"F",s:"Tango",terr:"T6"},
-  {t:"Naranjo en flor",k:"Bb",s:"Tango",terr:"T5"},
+  {t:"My one and only love",k:"Ab",s:"Ballad",terr:"T1",tested:true},
+  {t:"My way",k:"A",s:"Walking Ballad",terr:"T6",tested:true},
+  {t:"Nada",k:"F",s:"Tango",terr:"T6",tested:true},
+  {t:"Naranjo en flor",k:"Bb",s:"Tango",terr:"T5",tested:true},
   {t:"Natural Woman",k:"A",s:"",terr:"T6"},
-  {t:"Nature boy",k:"Cm",s:"",terr:"T7"},
+  {t:"Nature boy",k:"Cm",s:"Bossa",terr:"T7",tested:true},
   {t:"Nice work if you can get it",k:"D",s:"",terr:"T3"},
   {t:"Night and Day",k:"C",s:"",terr:"T1"},
-  {t:"Nobody knows you",k:"C",s:"Blues",terr:"T5"},
-  {t:"Nostalgiosa",k:"E",s:"Zamba",terr:"T2"},
-  {t:"Now at last",k:"G",s:"",terr:"T7"},
-  {t:"O pato",k:"D",s:"Bossa/Samba",terr:"T4"},
+  {t:"Nobody knows you",k:"C",s:"Arrangement",terr:"T5",tested:true},
+  {t:"Nostalgiosa",k:"E",s:"Zamba",terr:"T2",tested:true},
+  {t:"Now at last",k:"G",s:"Ballad",terr:"T7",tested:true},
+  {t:"O pato",k:"D",s:"Bossa/Samba",terr:"T4",tested:true},
   {t:"Old devil moon",k:"B",s:"",terr:"T1"},
   {t:"On a slow boat to China",k:"F",s:"",terr:"T1"},
   {t:"On the sunny side of the street",k:"F",s:"",terr:"T4"},
-  {t:"Once upon a summertime",k:"Bbm",s:"Waltz",terr:"T7"},
-  {t:"One note samba",k:"Bb",s:"Bossa/Samba",terr:"T4"},
+  {t:"Once upon a summertime",k:"Bbm",s:"Waltz",terr:"T7",tested:true},
+  {t:"One note samba",k:"Bb",s:"Bossa/Samba",terr:"T4",tested:true},
   {t:"Orange colored sky",k:"G",s:"",terr:"T7"},
   {t:"Our love is here to stay",k:"C",s:"",terr:"T1"},
-  {t:"Over the Rainbow",k:"Ab",s:"",terr:"T7"},
+  {t:"Over the Rainbow",k:"Ab",s:"Ballad",terr:"T7",tested:true},
   {t:"Pennies from heaven",k:"D",s:"",terr:"T7"},
-  {t:"Perfidia",k:"F",s:"Bolero",terr:"T1"},
+  {t:"Perfidia",k:"F",s:"Bolero",terr:"T1",tested:true},
   {t:"Pick yourself up",k:"C",s:"",terr:"T3"},
-  {t:"Piel Canela",k:"D",s:"Son",terr:"T1"},
-  {t:"Poor butterfly",k:"C",s:"",terr:"T5"},
-  {t:"Prelude to a kiss",k:"Ab",s:"",terr:"T7"},
+  {t:"Piel Canela",k:"D",s:"Son",terr:"T1",tested:true},
+  {t:"Poor butterfly",k:"C",s:"Ballad",terr:"T5",tested:true},
+  {t:"Prelude to a kiss",k:"Ab",s:"Ballad",terr:"T7",tested:true},
   {t:"Put on a happy face",k:"Bb",s:"",terr:"T3"},
   {t:"Puttin' on the Ritz",k:"Bm",s:"",terr:"T3"},
-  {t:"Quizás quizás quizás",k:"Am",s:"Bolero/Cha-cha",terr:"T3"},
-  {t:"Romance de barrio",k:"Bb",s:"Tango/Waltz",terr:"T2"},
-  {t:"Round midnight",k:"Bm",s:"",terr:"T5"},
+  {t:"Quiz\u00e1s quiz\u00e1s quiz\u00e1s",k:"Am",s:"Bolero/Cha-cha",terr:"T3",tested:true},
+  {t:"Romance de barrio",k:"Bb",s:"Tango/Waltz",terr:"T2",tested:true},
+  {t:"Round midnight",k:"Bm",s:"Walking Ballad",terr:"T5",tested:true},
   {t:"Route 66",k:"F",s:"",terr:"T4"},
   {t:"S' wonderful",k:"Bb",s:"",terr:"T3"},
-  {t:"Sabor a mi",k:"D",s:"Bolero",terr:"T1"},
+  {t:"Sabor a mi",k:"D",s:"Bolero",terr:"T1",tested:true},
   {t:"Satin doll",k:"F",s:"",terr:"T3"},
+  {t:"September in the rain",k:"G",s:"",terr:"T2"},
   {t:"Shine on harvest moon",k:"Db",s:"",terr:"T7"},
-  {t:"Since the very first of all",k:"A",s:"Original",terr:"T1",orig:true},
-  {t:"Skylark",k:"Ab",s:"",terr:"T7"},
-  {t:"Smile",k:"B",s:"",terr:"T6"},
-  {t:"So danço samba",k:"Eb",s:"Bossa",terr:"T4"},
+  {t:"Since the very first of all",k:"A",s:"Original",terr:"T1",orig:true,tested:true},
+  {t:"Skylark",k:"Ab",s:"Walking Ballad",terr:"T7",tested:true},
+  {t:"Smile",k:"B",s:"Ballad",terr:"T6",tested:true},
+  {t:"So dan\u00e7o samba",k:"Eb",s:"Bossa",terr:"T4",tested:true},
   {t:"So in love",k:"Cm",s:"",terr:"T1"},
   {t:"Social call",k:"Bb",s:"",terr:"T4"},
   {t:"Softly (as in a morning sunrise)",k:"Gm",s:"",terr:"T5"},
-  {t:"Solitude",k:"Gb",s:"",terr:"T5"},
-  {t:"Someday my prince will come",k:"Bb",s:"",terr:"T7"},
+  {t:"Solitude",k:"Gb",s:"Ballad",terr:"T5",tested:true},
+  {t:"Someday my prince will come",k:"Bb",s:"Waltz",terr:"T7",tested:true},
   {t:"Someone to watch over me",k:"G",s:"",terr:"T5"},
   {t:"Speak low",k:"Bb",s:"",terr:"T1"},
-  {t:"Stairway to the stars",k:"Ab",s:"",terr:"T7"},
-  {t:"Stars fell on Alabama",k:"D",s:"",terr:"T7"},
+  {t:"Stairway to the stars",k:"Ab",s:"Ballad",terr:"T7",tested:true},
+  {t:"Stars fell on Alabama",k:"D",s:"Walking Ballad",terr:"T7",tested:true},
   {t:"Stella by starlight",k:"F",s:"",terr:"T7"},
   {t:"Stormy weather",k:"D",s:"",terr:"T2"},
   {t:"Straighten up and fly right",k:"F",s:"",terr:"T4"},
-  {t:"Strollin'",k:"C",s:"Blues",terr:"T4"},
+  {t:"Strollin'",k:"C",s:"Blues",terr:"T4",tested:true},
   {t:"Summertime",k:"Cm",s:"",terr:"T5"},
   {t:"Take the A Train",k:"Eb",s:"",terr:"T4"},
   {t:"Tea for two",k:"Eb",s:"",terr:"T3"},
   {t:"Teach me tonight",k:"Ab",s:"",terr:"T1"},
-  {t:"Tenderly",k:"Bb",s:"",terr:"T1"},
+  {t:"Tenderly",k:"Bb",s:"Ballad",terr:"T1",tested:true},
   {t:"That old feeling",k:"G",s:"",terr:"T2"},
   {t:"That's life",k:"C",s:"",terr:"T6"},
-  {t:"The flower and the bluebird",k:"F",s:"Original",terr:"T7",orig:true},
+  {t:"The flower and the bluebird",k:"F",s:"Original",terr:"T7",orig:true,tested:true},
   {t:"The Lady is a Tramp",k:"G",s:"",terr:"T3"},
   {t:"The man I love",k:"G",s:"",terr:"T7"},
   {t:"The more I see you",k:"C",s:"",terr:"T1"},
-  {t:"The nearness of you",k:"Db",s:"",terr:"T1"},
-  {t:"The Peacocks",k:"Em",s:"",terr:"T7"},
-  {t:"The summer wind",k:"Ab",s:"",terr:"T2"},
+  {t:"The nearness of you",k:"Db",s:"Ballad",terr:"T1",tested:true},
+  {t:"The Peacocks",k:"Em",s:"Ballad",terr:"T7",tested:true},
+  {t:"The summer wind",k:"Ab",s:"Ballad",terr:"T2",tested:true},
   {t:"The thrill is gone",k:"Gm",s:"Blues",terr:"T6"},
   {t:"The very thought of you",k:"D",s:"",terr:"T2"},
   {t:"The way you look tonight",k:"Ab",s:"",terr:"T1"},
@@ -636,105 +537,140 @@ const BASE_SONGS=[
   {t:"Time after time",k:"Ab",s:"",terr:"T7"},
   {t:"Too close for comfort",k:"G",s:"",terr:"T3"},
   {t:"Too darn hot",k:"C",s:"",terr:"T3"},
-  {t:"Triste",k:"G",s:"Bossa",terr:"T5"},
+  {t:"Triste",k:"G",s:"Bossa",terr:"T5",tested:true},
   {t:"Undecided",k:"E",s:"",terr:"T3"},
   {t:"Unforgettable",k:"D",s:"",terr:"T2"},
-  {t:"Volver",k:"Bbm",s:"Tango",terr:"T2"},
-  {t:"Wave",k:"D",s:"Bossa",terr:"T1"},
+  {t:"Volver",k:"Bbm",s:"Tango/Bolero",terr:"T2",tested:true},
+  {t:"Wave",k:"D",s:"Bossa",terr:"T1",tested:true},
   {t:"Well you needn't",k:"Bb",s:"",terr:"T4"},
-  {t:"What a difference a day made",k:"D",s:"",terr:"T2"},
+  {t:"What a difference a day made",k:"D",s:"Walking Ballad",terr:"T2",tested:true},
   {t:"What a little moonlight can do",k:"G",s:"",terr:"T4"},
-  {t:"What a wonderful world",k:"Ab",s:"",terr:"T7"},
+  {t:"What a wonderful world",k:"Ab",s:"Ballad",terr:"T7",tested:true},
   {t:"What is this thing called love?",k:"Gb",s:"",terr:"T3"},
-  {t:"What'll I do?",k:"Ab",s:"Waltz",terr:"T2"},
+  {t:"What'll I do?",k:"Ab",s:"Waltz",terr:"T2",tested:true},
   {t:"What's new?",k:"Ab",s:"",terr:"T2"},
-  {t:"When Sunny gets blue",k:"C",s:"",terr:"T2"},
+  {t:"When Sunny gets blue",k:"C",s:"Walking Ballad",terr:"T2",tested:true},
   {t:"When you wish upon a star",k:"A",s:"",terr:"T7"},
   {t:"When you're smiling",k:"F",s:"",terr:"T4"},
-  {t:"While my guitar gently weeps",k:"Am",s:"Pop",terr:"T2"},
+  {t:"While my guitar gently weeps",k:"Am",s:"Pop",terr:"T2",tested:true},
   {t:"Whispering",k:"F",s:"",terr:"T7"},
   {t:"Why don't you do right?",k:"Eb",s:"",terr:"T6"},
-  {t:"Why try to change me now?",k:"C",s:"",terr:"T6"},
+  {t:"Why try to change me now?",k:"C",s:"Ballad",terr:"T6",tested:true},
   {t:"Willow weep for me",k:"D",s:"",terr:"T5"},
   {t:"Work song",k:"Bm",s:"Blues",terr:"T6"},
   {t:"Yesterdays",k:"Gm",s:"",terr:"T2"},
-  {t:"You are too beautiful",k:"F",s:"",terr:"T5"},
-  {t:"You don't know me",k:"F",s:"",terr:"T5"},
-  {t:"You don't know what love is",k:"Bbm",s:"",terr:"T5"},
+  {t:"You are too beautiful",k:"F",s:"Ballad",terr:"T5",tested:true},
+  {t:"You don't know me",k:"F",s:"Ballad",terr:"T5",tested:true},
+  {t:"You don't know what love is",k:"Bbm",s:"Ballad",terr:"T5",tested:true},
   {t:"You make me feel so young",k:"F",s:"",terr:"T4"},
-  {t:"You must believe in spring",k:"C",s:"",terr:"T7"},
-  {t:"You stepped out of a dream",k:"A",s:"",terr:"T7"},
-  {t:"You won't forget me",k:"Dm",s:"",terr:"T2"},
+  {t:"You must believe in spring",k:"C",s:"Walking Ballad",terr:"T7",tested:true},
+  {t:"You stepped out of a dream",k:"A",s:"Walking Ballad",terr:"T7",tested:true},
+  {t:"You won't forget me",k:"Dm",s:"Ballad",terr:"T2",tested:true},
   {t:"You'd be so nice to come home to",k:"Em",s:"",terr:"T1"},
-  {t:"Zamba de Lozano",k:"Bbm",s:"Zamba",terr:"T2"},
-  {t:"Zamba del Carnaval",k:"Gm",s:"Zamba",terr:"T4"},
-  {t:"Zamba del Laurel",k:"F",s:"Zamba",terr:"T2"},
-  {t:"Zip a dee doo dah",k:"G",s:"Arrangement",terr:"T4"},
+  {t:"Zamba de Lozano",k:"Bbm",s:"Zamba",terr:"T2",tested:true},
+  {t:"Zamba del Carnaval",k:"Gm",s:"Zamba",terr:"T4",tested:true},
+  {t:"Zamba del Laurel",k:"F",s:"Zamba",terr:"T2",tested:true},
+  {t:"Zip a dee doo dah",k:"G",s:"Arrangement",terr:"T4",tested:true},
 ];
 
-// ════════════════════════════════════════════════════════
-//  STATE
-// ════════════════════════════════════════════════════════
-const LS_STATES="maduro26_states", LS_USERS="maduro26_usersongs";
-let activeTab="repertorio", activeTerr="ALL", searchQ="", expandedId=null;
+const TERRITORIES=[
+  {id:"ALL",name:"Todas",emoji:"🎼",color:"#78716C",bg:"#F7F5F0",border:"#E7E5E0",desc:""},
+  {id:"T1",name:"DESEO",emoji:"🔥",color:"#C0392B",bg:"#FDF2F2",border:"#F5C6C2",desc:"Seducción · anhelo · tensión"},
+  {id:"T2",name:"PÉRDIDA",emoji:"🌙",color:"#3730A3",bg:"#F0F0FF",border:"#C7C8F5",desc:"Nostalgia · memoria · ausencia"},
+  {id:"T3",name:"IRONÍA",emoji:"✨",color:"#B45309",bg:"#FFFBEB",border:"#FDE68A",desc:"Ingenio · elegancia · distancia"},
+  {id:"T4",name:"GROOVE",emoji:"🎵",color:"#047857",bg:"#ECFDF5",border:"#A7F3D0",desc:"Alegría · swing · celebración"},
+  {id:"T5",name:"FRAGILIDAD",emoji:"💧",color:"#6D28D9",bg:"#F5F3FF",border:"#DDD6FE",desc:"Vulnerabilidad · exposición"},
+  {id:"T6",name:"PODER",emoji:"⚡",color:"#C2410C",bg:"#FFF7ED",border:"#FED7AA",desc:"Fuerza · afirmación · dignidad"},
+  {id:"T7",name:"ENSOÑACIÓN",emoji:"☁️",color:"#0369A1",bg:"#F0F9FF",border:"#BAE6FD",desc:"Sueño · maravilla · otro mundo"},
+];
+const STATUS={
+  nueva:{label:"Nueva",dot:"#D6D3D1",color:"#78716C",bg:"#F7F5F0",border:"#E7E5E0"},
+  trabajando:{label:"Trabajando",dot:"#D97706",color:"#B45309",bg:"#FFFBEB",border:"#FDE68A"},
+  perla:{label:"⭐ Perla",dot:"#059669",color:"#047857",bg:"#ECFDF5",border:"#A7F3D0"},
+};
+const TEMPO={ballad:{label:"Ballad",pip:"ballad",short:"🎻"},medium:{label:"Medium",pip:"medium",short:"⚡"},up:{label:"Up",pip:"up",short:"🚀"}};
+const SLOTS=[
+  {id:"arrangement",label:"Arrangement",emoji:"🎼",desc:"Arreglo / medley"},
+  {id:"latino",label:"Latino",emoji:"🌎",desc:"Bossa · Tango · Zamba · Bolero"},
+  {id:"swing",label:"Swing",emoji:"🎷",desc:"Standard / bebop"},
+  {id:"blues",label:"Blues",emoji:"🎹",desc:"Con tinte bluesero"},
+  {id:"ballad",label:"Ballad",emoji:"🌙",desc:"Ballad · Walking Ballad",fullWidth:true},
+];
+const LS_STATES="maduro26_states",LS_USERS="maduro26_usersongs";
+let activeTab="repertorio",activeTerr="ALL",searchQ="",expandedId=null;
+let filterUptempo=false,filterShort=false;
 let songStates=JSON.parse(localStorage.getItem(LS_STATES)||"{}");
 let userSongs=JSON.parse(localStorage.getItem(LS_USERS)||"[]");
-// Set builder state (ephemeral)
-let sbTerr="ALL", sbPool="active";
-let sbSlotState={arrangement:{song:null,locked:false},latino:{song:null,locked:false},swing:{song:null,locked:false},blues:{song:null,locked:false}};
-let sbExtrasSelected=new Set();
-let sbGenerated=false;
-
+let sbTerr="ALL",sbPool="active";
+let sbSlotState={arrangement:{song:null,locked:false},latino:{song:null,locked:false},swing:{song:null,locked:false},blues:{song:null,locked:false},ballad:{song:null,locked:false}};
+let sbExtrasSelected=new Set(),sbGenerated=false;
 function save(){localStorage.setItem(LS_STATES,JSON.stringify(songStates));localStorage.setItem(LS_USERS,JSON.stringify(userSongs));}
 function allSongs(){return[...BASE_SONGS,...userSongs];}
 function songId(s){return s.t+(s.k?"__"+s.k:"")+(s._uid?"__"+s._uid:"");}
-function getState(s){return songStates[songId(s)]||{status:"nueva",anchor:"",customTerr:null,tempo:null,note:"",impro:false,customKey:null,customStyle:null};}
+function getState(s){
+  const saved=songStates[songId(s)];
+  if(saved)return{short:false,uptempo:false,...saved};
+  return{status:s.tested?"trabajando":"nueva",anchor:"",customTerr:null,tempo:null,note:"",impro:false,customKey:null,customStyle:null,short:false,uptempo:false};
+}
 function setState(s,u){songStates[songId(s)]={...getState(s),...u};save();}
 function effectiveTerr(s){return getState(s).customTerr||s.terr;}
-function getKey(s){return getState(s).customKey!=null?getState(s).customKey:s.k;}
-function getStyle(s){return getState(s).customStyle!=null?getState(s).customStyle:s.s;}
+function getKey(s){const st=getState(s);return st.customKey!=null?st.customKey:s.k;}
+function getStyle(s){const st=getState(s);return st.customStyle!=null?st.customStyle:s.s;}
 function getTerr(id){return TERRITORIES.find(t=>t.id===id);}
 function isUser(s){return!!s._uid;}
-
-// Category for set builder
+function isUptempo(s){const st=(getStyle(s)||"").toLowerCase();return st.includes("uptempo")||!!getState(s).uptempo||!!s.uptempo;}
+function isShort(s){return!!getState(s).short;}
 function getCategory(song){
   const st=(getStyle(song)||"").toLowerCase();
   if(st.includes("blues"))return"blues";
   if(st.match(/bossa|zamba|bolero|tango|son\b|samba|huayno|chacarera|cha-cha|waltz|latin\b|vals|son montuno|son cubano/))return"latino";
-  if(st.includes("arrangement")||st.includes("arr.")||st.includes("original")||st.includes("medley"))return"arrangement";
+  if(st.includes("arrangement")||st.includes("arr.")||st.includes("original")||st.includes("medley")||st.includes("canción"))return"arrangement";
+  if(st.includes("ballad"))return"ballad";
   return"swing";
 }
-
-// ════════════════════════════════════════════════════════
-//  RENDER — MAIN
-// ════════════════════════════════════════════════════════
-function render(){
-  renderStats();
-  if(activeTab==="repertorio"){renderTerrFilters();renderBanner();renderList();bindRepEvents();}
-  else{renderSB();bindSBEvents();}
+function getPool(terrFilter){
+  return allSongs().filter(s=>{
+    const et=effectiveTerr(s);
+    const mt=terrFilter==="ALL"||et===terrFilter;
+    const st=getState(s).status;
+    const ok=sbPool==="all"||st==="trabajando"||st==="perla";
+    return mt&&ok;
+  });
 }
-
+function pickRandom(arr){return arr.length?arr[Math.floor(Math.random()*arr.length)]:null;}
+function generateSlot(slotId,terrFilter){
+  const inTerr=getPool(terrFilter).filter(s=>getCategory(s)===slotId);
+  if(inTerr.length)return pickRandom(inTerr);
+  const anyTerr=getPool("ALL").filter(s=>getCategory(s)===slotId);
+  return pickRandom(anyTerr);
+}
+function generateSet(){SLOTS.forEach(sl=>{if(!sbSlotState[sl.id].locked)sbSlotState[sl.id].song=generateSlot(sl.id,sbTerr);});sbExtrasSelected=new Set();sbGenerated=true;}
+function filtered(){
+  return allSongs().filter(s=>{
+    const mt=activeTerr==="ALL"||effectiveTerr(s)===activeTerr;
+    const q=searchQ.toLowerCase(),ms=!q||s.t.toLowerCase().includes(q)||(getStyle(s)&&getStyle(s).toLowerCase().includes(q));
+    const fu=!filterUptempo||isUptempo(s);
+    const fs=!filterShort||isShort(s);
+    return mt&&ms&&fu&&fs;
+  });
+}
+function render(){renderStats();if(activeTab==="repertorio"){renderTerrFilters();renderBanner();renderFilters();renderList();bindRepEvents();}else{renderSB();bindSBEvents();}}
 function renderStats(){
-  const all=allSongs(),p=all.filter(s=>getState(s).status==="perla").length,
-    tr=all.filter(s=>getState(s).status==="trabajando").length,imp=all.filter(s=>getState(s).impro).length;
+  const all=allSongs(),p=all.filter(s=>getState(s).status==="perla").length,tr=all.filter(s=>getState(s).status==="trabajando").length;
+  const ut=all.filter(s=>isUptempo(s)).length,sh=all.filter(s=>isShort(s)).length;
   document.getElementById("statsRow").innerHTML=`
     <span class="stat"><span class="stat-dot" style="background:#D6D3D1"></span>${all.length-p-tr} nuevas</span>
     <span class="stat"><span class="stat-dot" style="background:#D97706"></span>${tr} trabajando</span>
     <span class="stat"><span class="stat-dot" style="background:#059669"></span>${p} perlas</span>
-    <span style="color:#C9C5BF">·</span>
-    <span>${all.length} canciones</span>
-    ${imp?`<span style="color:#C9C5BF">·</span><span>🎤 ${imp} slots impro</span>`:""}`;
+    <span style="color:#C9C5BF">·</span><span>${all.length} canciones</span>
+    ${ut?`<span style="color:#C9C5BF">·</span><span>⚡ ${ut} uptempo</span>`:""}
+    ${sh?`<span style="color:#C9C5BF">·</span><span>⏱ ${sh} cortas</span>`:""}`;
 }
-
-// ════════════════════════════════════════════════════════
-//  RENDER — REPERTORIO
-// ════════════════════════════════════════════════════════
 function renderTerrFilters(){
   const counts={};allSongs().forEach(s=>{const e=effectiveTerr(s);counts[e]=(counts[e]||0)+1;});
   document.getElementById("terrFilters").innerHTML=TERRITORIES.map(t=>{
     const a=activeTerr===t.id,cnt=t.id==="ALL"?allSongs().length:(counts[t.id]||0);
-    return`<button class="terr-btn${a?" active":""}" data-tid="${t.id}"
-      style="${a?`border-color:${t.color};background:${t.bg};color:${t.color}`:""}">
+    return`<button class="terr-btn${a?" active":""}" data-tid="${t.id}" style="${a?`border-color:${t.color};background:${t.bg};color:${t.color}`:""}">
       ${t.emoji} ${t.name}<span class="terr-cnt"> ${cnt}</span></button>`;
   }).join("");
 }
@@ -742,15 +678,12 @@ function renderBanner(){
   const el=document.getElementById("terrBanner");
   if(activeTerr==="ALL"){el.innerHTML="";return;}
   const t=getTerr(activeTerr);
-  el.innerHTML=`<div class="terr-banner" style="background:${t.bg};border:1px solid ${t.border};color:${t.color}">
-    <strong>${t.emoji} ${t.name}</strong><span class="terr-desc"> — ${t.desc}</span></div>`;
+  el.innerHTML=`<div class="terr-banner" style="background:${t.bg};border:1px solid ${t.border};color:${t.color}"><strong>${t.emoji} ${t.name}</strong><span class="terr-desc"> — ${t.desc}</span></div>`;
 }
-function filtered(){
-  return allSongs().filter(s=>{
-    const mt=activeTerr==="ALL"||effectiveTerr(s)===activeTerr;
-    const q=searchQ.toLowerCase(),ms=!q||s.t.toLowerCase().includes(q)||(getStyle(s)&&getStyle(s).toLowerCase().includes(q));
-    return mt&&ms;
-  });
+function renderFilters(){
+  document.getElementById("filterRow").innerHTML=`
+    <button class="filter-btn${filterUptempo?" active":""}" id="btnFilterUp">⚡ Uptempo</button>
+    <button class="filter-btn${filterShort?" active":""}" id="btnFilterShort">⏱ Canciones cortas</button>`;
 }
 function renderList(){
   const list=filtered();
@@ -760,67 +693,35 @@ function renderList(){
     const isExp=expandedId===id,dot=STATUS[state.status]?.dot||"#D6D3D1";
     const dispKey=getKey(song),dispStyle=getStyle(song);
     const tempoPip=state.tempo?`<span class="tempo-pip ${state.tempo}">${TEMPO[state.tempo].label}</span>`:"";
-
-    const statusBtns=Object.entries(STATUS).map(([k,v])=>{
-      const a=state.status===k;
-      return`<button class="pill-btn${a?" active":""}" data-action="status" data-id="${id}" data-val="${k}"
-        style="${a?`border-color:${v.color};background:${v.bg};color:${v.color}`:""}">${v.label}</button>`;
-    }).join("");
-    const tempoBtns=Object.entries(TEMPO).map(([k,v])=>{
-      const a=state.tempo===k;
-      return`<button class="pill-btn${a?" active":""}" data-action="tempo" data-id="${id}" data-val="${k}"
-        style="${a?`border-color:${getTempoBorderColor(k)};background:${getTempoBg(k)};color:${getTempoColor(k)}`:""}">${v.short} ${v.label}</button>`;
-    }).join("");
-    const impBtn=`<button class="impro-toggle${state.impro?" active":""}" data-action="impro" data-id="${id}">🎤 Slot impro</button>`;
-    const terrPills=TERRITORIES.filter(tt=>tt.id!=="ALL").map(tt=>{
-      const a=et===tt.id;
-      return`<button class="terr-pill${a?" active":""}" data-action="terr" data-id="${id}" data-val="${tt.id}" data-base="${song.terr}"
-        style="${a?`border-color:${tt.color};background:${tt.bg};color:${tt.color}`:""}">${tt.emoji} ${tt.name}</button>`;
-    }).join("");
-
+    const upTag=isUptempo(song)?`<span class="uptempo-tag">⚡ Uptempo</span>`:"";
+    const statusBtns=Object.entries(STATUS).map(([k,v])=>{const a=state.status===k;return`<button class="pill-btn${a?" active":""}" data-action="status" data-id="${id}" data-val="${k}" style="${a?`border-color:${v.color};background:${v.bg};color:${v.color}`:""}">${v.label}</button>`;}).join("");
+    const tempoBtns=Object.entries(TEMPO).map(([k,v])=>{const a=state.tempo===k;return`<button class="pill-btn${a?" active":""}" data-action="tempo" data-id="${id}" data-val="${k}" style="${a?`border-color:${getTempoBorder(k)};background:${getTempoBg(k)};color:${getTempoColor(k)}`:""}">${v.short} ${v.label}</button>`;}).join("");
+    const impBtn=`<button class="toggle-btn${state.impro?" active-green":""}" data-action="impro" data-id="${id}">🎤 Impro</button>`;
+    const upBtn=`<button class="toggle-btn${(state.uptempo||song.uptempo)?" active-orange":""}" data-action="uptempo" data-id="${id}">⚡ Uptempo</button>`;
+    const shortBtn=`<button class="toggle-btn${state.short?" active-blue":""}" data-action="short" data-id="${id}">⏱ Corta</button>`;
+    const terrPills=TERRITORIES.filter(tt=>tt.id!=="ALL").map(tt=>{const a=et===tt.id;return`<button class="terr-pill${a?" active":""}" data-action="terr" data-id="${id}" data-val="${tt.id}" data-base="${song.terr}" style="${a?`border-color:${tt.color};background:${tt.bg};color:${tt.color}`:""}">${tt.emoji} ${tt.name}</button>`;}).join("");
     const detail=isExp?`<div class="song-detail" style="background:${terr.bg}">
-      <div class="detail-section">
-        <div class="detail-label">Estado</div>
-        <div class="pill-row">${statusBtns}</div>
-      </div>
-      <div class="detail-section">
-        <div class="detail-label" style="margin-bottom:6px">Tempo</div>
-        <div class="pill-row" style="gap:5px;align-items:center">${tempoBtns}${impBtn}</div>
-      </div>
+      <div class="detail-section"><div class="detail-label">Estado</div><div class="pill-row">${statusBtns}</div></div>
+      <div class="detail-section"><div class="detail-label">Tempo</div><div class="pill-row" style="gap:5px;align-items:center">${tempoBtns}${impBtn}${upBtn}${shortBtn}</div></div>
       <div class="edit-row">
-        <div class="edit-field">
-          <label>Tonalidad</label>
-          <input class="edit-input" data-action="editkey" data-id="${id}" placeholder="${song.k||'—'}" value="${state.customKey!=null?state.customKey:''}" />
-        </div>
-        <div class="edit-field">
-          <label>Estilo / Tag</label>
-          <input class="edit-input" data-action="editstyle" data-id="${id}" placeholder="${song.s||'—'}" value="${state.customStyle!=null?state.customStyle:''}" />
-        </div>
+        <div class="edit-field"><label>Tonalidad</label><input class="edit-input" data-action="editkey" data-id="${id}" placeholder="${song.k||'—'}" value="${state.customKey!=null?state.customKey:''}"/></div>
+        <div class="edit-field"><label>Estilo / Tag</label><input class="edit-input" data-action="editstyle" data-id="${id}" placeholder="${song.s||'—'}" value="${state.customStyle!=null?state.customStyle:''}"/></div>
       </div>
-      <div class="detail-section">
-        <div class="detail-label">Imagen ancla <span class="detail-note">— activador de 2 segundos</span></div>
-        <input class="anchor-input" data-action="anchor" data-id="${id}" placeholder="ej. la luz de una habitación vacía al mediodía…" value="${(state.anchor||"").replace(/"/g,'&quot;')}" />
-      </div>
-      <div class="detail-section">
-        <div class="detail-label">Nota de interpretación <span class="detail-note">— decisión artística sobre esta versión</span></div>
-        <input class="anchor-input" data-action="note" data-id="${id}" placeholder="ej. intro a cappella · versión muy lenta · humor, no romance…" value="${(state.note||"").replace(/"/g,'&quot;')}" />
-      </div>
-      <div class="detail-section">
-        <div class="detail-label" style="margin-bottom:6px">Territorio <span class="detail-note">— reasigná si no coincidís</span></div>
-        <div class="terr-pills">${terrPills}</div>
-      </div>
+      <div class="detail-section"><div class="detail-label">Imagen ancla <span class="detail-note">— activador de 2 segundos</span></div><input class="anchor-input" data-action="anchor" data-id="${id}" placeholder="ej. la luz de una habitación vacía al mediodía…" value="${(state.anchor||"").replace(/"/g,'&quot;')}"/></div>
+      <div class="detail-section"><div class="detail-label">Nota de interpretación <span class="detail-note">— decisión artística sobre esta versión</span></div><input class="anchor-input" data-action="note" data-id="${id}" placeholder="ej. intro a cappella · versión muy lenta · humor, no romance…" value="${(state.note||"").replace(/"/g,'&quot;')}"/></div>
+      <div class="detail-section"><div class="detail-label" style="margin-bottom:6px">Territorio <span class="detail-note">— reasigná si no coincidís</span></div><div class="terr-pills">${terrPills}</div></div>
       ${isUser(song)?`<button class="delete-btn" data-action="delete" data-uid="${song._uid}">🗑 Eliminar canción</button>`:""}
     </div>`:"";
-
     return`<div class="song-card${isExp?" expanded":""}" style="${isExp?`border-color:${terr.border}`:""}">
       <div class="song-row" data-action="expand" data-id="${id}">
         <div class="status-dot" style="background:${dot}"></div>
         <div class="song-main">
-          <span class="song-title">${song.t}${song.orig?'<span class="badge badge-orig">ORIG</span>':""}${isUser(song)?'<span class="badge badge-user">+</span>':""}${state.impro?'<span class="badge badge-impro">🎤</span>':""}</span>
+          <span class="song-title">${song.t}${song.orig?'<span class="badge badge-orig">ORIG</span>':""}${isUser(song)?'<span class="badge badge-user">+</span>':""}${state.impro?'<span class="badge badge-impro">🎤</span>':""}${isUptempo(song)?'<span class="badge badge-uptempo">⚡</span>':""}${isShort(song)?'<span class="badge badge-short">⏱</span>':""}</span>
           ${state.anchor?`<div class="song-anchor">"${state.anchor}"</div>`:""}
         </div>
         ${dispKey?`<span class="song-key">${dispKey}</span>`:""}
-        ${dispStyle?`<span class="style-tag">${dispStyle}</span>`:""}
+        ${dispStyle&&!dispStyle.toLowerCase().includes("uptempo")?`<span class="style-tag">${dispStyle}</span>`:""}
+        ${upTag}
         ${tempoPip}
         <span class="terr-emoji">${terr.emoji}</span>
       </div>${detail}</div>`;
@@ -828,14 +729,17 @@ function renderList(){
 }
 function getTempoBg(k){return k==="ballad"?"#EEF2FF":k==="medium"?"#FFF7ED":"#ECFDF5";}
 function getTempoColor(k){return k==="ballad"?"#3730A3":k==="medium"?"#C2410C":"#047857";}
-function getTempoBorderColor(k){return k==="ballad"?"#C7C8F5":k==="medium"?"#FED7AA":"#A7F3D0";}
-
+function getTempoBorder(k){return k==="ballad"?"#C7C8F5":k==="medium"?"#FED7AA":"#A7F3D0";}
 function bindRepEvents(){
   document.querySelectorAll(".terr-btn").forEach(b=>b.addEventListener("click",()=>{activeTerr=b.dataset.tid;expandedId=null;render();}));
   const si=document.getElementById("searchInput"),sc=document.getElementById("searchClear");
   si.value=searchQ;
   si.oninput=e=>{searchQ=e.target.value;sc.style.display=searchQ?"block":"none";expandedId=null;render();};
   sc.onclick=()=>{searchQ="";si.value="";sc.style.display="none";render();};
+  const fu=document.getElementById("btnFilterUp");
+  if(fu)fu.onclick=()=>{filterUptempo=!filterUptempo;render();};
+  const fs=document.getElementById("btnFilterShort");
+  if(fs)fs.onclick=()=>{filterShort=!filterShort;render();};
   document.getElementById("songList").addEventListener("click",e=>{
     const btn=e.target.closest("[data-action]");if(!btn)return;e.stopPropagation();
     const{action,id,val,base,uid}=btn.dataset;
@@ -844,6 +748,8 @@ function bindRepEvents(){
     if(action==="status"&&song){setState(song,{status:val});render();return;}
     if(action==="tempo"&&song){setState(song,{tempo:getState(song).tempo===val?null:val});render();return;}
     if(action==="impro"&&song){setState(song,{impro:!getState(song).impro});render();return;}
+    if(action==="uptempo"&&song){setState(song,{uptempo:!getState(song).uptempo});render();return;}
+    if(action==="short"&&song){setState(song,{short:!getState(song).short});render();return;}
     if(action==="terr"&&song){setState(song,{customTerr:val===base?null:val});render();return;}
     if(action==="delete"&&uid){if(confirm("¿Eliminar esta canción?")){userSongs=userSongs.filter(s=>s._uid!==uid);expandedId=null;save();render();}}
   });
@@ -857,97 +763,50 @@ function bindRepEvents(){
     if(action==="editstyle")setState(song,{customStyle:inp.value||null});
   });
 }
-
-// ════════════════════════════════════════════════════════
-//  RENDER — SET BUILDER
-// ════════════════════════════════════════════════════════
-function getPool(terrFilter){
-  return allSongs().filter(s=>{
-    const et=effectiveTerr(s);
-    const mt=terrFilter==="ALL"||et===terrFilter;
-    const st=getState(s).status;
-    const statusOk=sbPool==="all"||st==="trabajando"||st==="perla";
-    return mt&&statusOk;
-  });
-}
-
-function pickRandom(arr){return arr.length?arr[Math.floor(Math.random()*arr.length)]:null;}
-
-function generateSlot(slotId,terrFilter){
-  const inTerr=getPool(terrFilter).filter(s=>getCategory(s)===slotId);
-  if(inTerr.length)return pickRandom(inTerr);
-  // Fallback: any territory
-  const anyTerr=getPool("ALL").filter(s=>getCategory(s)===slotId);
-  return pickRandom(anyTerr);
-}
-
-function generateSet(){
-  SLOTS.forEach(sl=>{
-    if(!sbSlotState[sl.id].locked){
-      sbSlotState[sl.id].song=generateSlot(sl.id,sbTerr);
-    }
-  });
-  sbExtrasSelected=new Set();
-  sbGenerated=true;
-}
-
 function renderSB(){
-  renderSBTerrFilters();
-  renderSBSlots();
-  renderSBBalance();
-  renderSBExtras();
+  renderSBTerrFilters();renderSBSlots();renderSBBalance();renderSBExtras();
 }
-
 function renderSBTerrFilters(){
   const counts={};allSongs().forEach(s=>{const e=effectiveTerr(s);counts[e]=(counts[e]||0)+1;});
   document.getElementById("sbTerrFilters").innerHTML=TERRITORIES.map(t=>{
     const a=sbTerr===t.id,cnt=t.id==="ALL"?allSongs().length:(counts[t.id]||0);
-    return`<button class="terr-btn${a?" active":""}" data-sbtid="${t.id}"
-      style="${a?`border-color:${t.color};background:${t.bg};color:${t.color}`:""}">
+    return`<button class="terr-btn${a?" active":""}" data-sbtid="${t.id}" style="${a?`border-color:${t.color};background:${t.bg};color:${t.color}`:""}">
       ${t.emoji} ${t.name}<span class="terr-cnt"> ${cnt}</span></button>`;
   }).join("");
 }
-
 function renderSBSlots(){
   document.getElementById("sbSlots").innerHTML=SLOTS.map(sl=>{
-    const ss=sbSlotState[sl.id];
-    const song=ss.song;
-    const locked=ss.locked;
+    const ss=sbSlotState[sl.id],song=ss.song,locked=ss.locked;
     let bodyHtml;
-    if(!sbGenerated){
-      bodyHtml=`<div class="slot-empty">Presioná <strong>Generar set</strong><br>para armar el esqueleto.</div>`;
-    } else if(song){
+    if(!sbGenerated){bodyHtml=`<div class="slot-empty">Presioná <strong>Generar set</strong><br>para armar el esqueleto.</div>`;}
+    else if(song){
       const state=getState(song),et=effectiveTerr(song),terr=getTerr(et);
       const dot=STATUS[state.status]?.dot||"#D6D3D1";
       const tempoPip=state.tempo?`<span class="tempo-pip ${state.tempo}">${TEMPO[state.tempo].label}</span>`:"";
-      const fromOtherTerr=(sbTerr!=="ALL"&&et!==sbTerr)?`<span style="font-size:10px;color:var(--muted)"> (${terr.emoji} otro terr.)</span>`:"";
+      const fromOther=(sbTerr!=="ALL"&&et!==sbTerr)?`<span style="font-size:10px;color:var(--muted)"> (${terr.emoji})</span>`:"";
+      const upBadge=isUptempo(song)?`<span style="font-size:10px;color:#C2410C;font-weight:600">⚡</span>`:"";
+      const shortBadge=isShort(song)?`<span style="font-size:10px;color:#0369A1">⏱</span>`:"";
       bodyHtml=`<div class="slot-song-title" style="display:flex;align-items:flex-start;gap:6px">
           <span class="status-dot" style="background:${dot};margin-top:4px;flex-shrink:0"></span>
-          <span>${song.t}${fromOtherTerr}</span>
+          <span>${song.t}${fromOther}</span>
         </div>
         <div class="slot-song-meta">
           ${getKey(song)?`<span class="slot-key">${getKey(song)}</span>`:""}
-          ${getStyle(song)?`<span class="style-tag">${getStyle(song)}</span>`:""}
-          ${tempoPip}
+          ${getStyle(song)&&!getStyle(song).toLowerCase().includes("uptempo")?`<span class="style-tag">${getStyle(song)}</span>`:""}
+          ${upBadge}${shortBadge}${tempoPip}
           <span class="slot-terr">${terr.emoji}</span>
           ${state.impro?'<span style="font-size:11px;color:#047857">🎤</span>':""}
         </div>
         ${state.note?`<div style="font-size:11px;font-style:italic;color:var(--sub);margin-top:5px">"${state.note}"</div>`:""}`;
-    } else {
-      bodyHtml=`<div class="slot-empty">Sin canciones ${sbPool==="active"?"activas":""}.<br>
-        <button class="slot-empty-btn" data-sbpool="all">Usar todo el repertorio</button></div>`;
+    }else{
+      bodyHtml=`<div class="slot-empty">Sin canciones ${sbPool==="active"?"activas":""}.<br><button class="slot-empty-btn" data-sbpool="all">Usar todo el repertorio</button></div>`;
     }
-    return`<div class="slot-card${song?" has-song":""}" style="${song?`border-color:${getTerr(effectiveTerr(song)).border}`:""}">
+    const extraClass=sl.fullWidth?" sb-slot-ballad":"";
+    return`<div class="slot-card${song?" has-song":""}${extraClass}" style="${song?`border-color:${getTerr(effectiveTerr(song)).border}`:""}">
       <div class="slot-header">
-        <div class="slot-cat">
-          <span class="slot-cat-emoji">${sl.emoji}</span>
-          <span class="slot-cat-name">${sl.label}</span>
-          <span style="font-size:10px;color:var(--muted);margin-left:3px">— ${sl.desc}</span>
-        </div>
+        <div class="slot-cat"><span class="slot-cat-emoji">${sl.emoji}</span><span class="slot-cat-name">${sl.label}</span><span style="font-size:10px;color:var(--muted);margin-left:3px">— ${sl.desc}</span></div>
         <div class="slot-actions">
-          <button class="slot-btn${locked?" locked":""}" data-sblock="${sl.id}" title="${locked?"Desbloquear":"Bloquear"}">
-            ${locked?"🔒":"🔓"}
-          </button>
+          <button class="slot-btn${locked?" locked":""}" data-sblock="${sl.id}" title="${locked?"Desbloquear":"Bloquear"}">${locked?"🔒":"🔓"}</button>
           <button class="slot-btn" data-sbreroll="${sl.id}" title="Re-roll" ${locked?"disabled style='opacity:.4;cursor:not-allowed'":""}>🔄</button>
         </div>
       </div>
@@ -955,7 +814,6 @@ function renderSBSlots(){
     </div>`;
   }).join("");
 }
-
 function renderSBBalance(){
   const el=document.getElementById("sbBalance");
   const songs=SLOTS.map(sl=>sbSlotState[sl.id].song).filter(Boolean);
@@ -972,86 +830,55 @@ function renderSBBalance(){
     <div class="sb-balance-pills">${pips.join("")}</div>
     <button class="sb-copy" id="sbCopyBtn">📋 Copiar set</button>`;
 }
-
 function renderSBExtras(){
   const el=document.getElementById("sbExtras");
   if(!sbGenerated){el.innerHTML="";return;}
   const usedIds=new Set(SLOTS.map(sl=>sbSlotState[sl.id].song).filter(Boolean).map(s=>songId(s)));
   const pool=getPool(sbTerr).filter(s=>!usedIds.has(songId(s)));
-  // Sort: perlas first, then trabajando, then by title
-  pool.sort((a,b)=>{
-    const rank={perla:0,trabajando:1,nueva:2};
-    const ra=rank[getState(a).status]??2,rb=rank[getState(b).status]??2;
-    return ra!==rb?ra-rb:a.t.localeCompare(b.t);
-  });
+  pool.sort((a,b)=>{const r={perla:0,trabajando:1,nueva:2};const ra=r[getState(a).status]??2,rb=r[getState(b).status]??2;return ra!==rb?ra-rb:a.t.localeCompare(b.t);});
   const extras=pool.slice(0,6);
   if(!extras.length){el.innerHTML=`<div class="sb-extras-title">Para completar el set</div><div class="empty" style="padding:16px">No hay más canciones disponibles.</div>`;return;}
   el.innerHTML=`<div class="sb-extras-title">Para completar el set <span style="font-size:10px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)">— seleccioná las que querés agregar</span></div>
     <div class="sb-extra-list">${extras.map(song=>{
       const id=songId(song),state=getState(song),et=effectiveTerr(song),terr=getTerr(et);
-      const sel=sbExtrasSelected.has(id);
-      const dot=STATUS[state.status]?.dot||"#D6D3D1";
+      const sel=sbExtrasSelected.has(id),dot=STATUS[state.status]?.dot||"#D6D3D1";
       const tempoPip=state.tempo?`<span class="tempo-pip ${state.tempo}">${TEMPO[state.tempo].label}</span>`:"";
       return`<div class="sb-extra-card${sel?" selected":""}" data-sbextra="${id}">
         <div class="status-dot" style="background:${dot}"></div>
         <div class="sb-extra-main">
-          <div class="sb-extra-title">${song.t}${state.impro?'<span style="font-size:10px;color:#047857;margin-left:4px">🎤</span>':""}</div>
+          <div class="sb-extra-title">${song.t}${state.impro?'<span style="font-size:10px;color:#047857;margin-left:4px">🎤</span>':""}${isUptempo(song)?'<span style="font-size:10px;color:#C2410C;margin-left:4px">⚡</span>':""}</div>
           <div style="display:flex;gap:5px;margin-top:2px;flex-wrap:wrap">
             ${getKey(song)?`<span class="song-key">${getKey(song)}</span>`:""}
-            ${getStyle(song)?`<span class="style-tag">${getStyle(song)}</span>`:""}
-            ${tempoPip}
-            <span style="font-size:11px">${terr.emoji}</span>
+            ${getStyle(song)&&!getStyle(song).toLowerCase().includes("uptempo")?`<span class="style-tag">${getStyle(song)}</span>`:""}
+            ${tempoPip}<span style="font-size:11px">${terr.emoji}</span>
           </div>
         </div>
         <div class="sb-extra-check${sel?" on":""}">${sel?"✓":""}</div>
       </div>`;
     }).join("")}</div>`;
 }
-
 function buildSetText(){
   const lines=["🎼 SET — Maduro 2026",""];
   SLOTS.forEach(sl=>{
     const s=sbSlotState[sl.id].song;
     if(s){const k=getKey(s),st=getStyle(s),tmp=getState(s).tempo;
-      lines.push(`${sl.emoji} ${sl.label}: ${s.t}${k?" ("+k+")":""}${st?" — "+st:""}${tmp?" · "+TEMPO[tmp].label:""}`);}
+      lines.push(`${sl.emoji} ${sl.label}: ${s.t}${k?" ("+k+")":""}${st&&!st.toLowerCase().includes("uptempo")?" — "+st:""}${isUptempo(s)?" ⚡":""}${tmp?" · "+TEMPO[tmp].label:""}`);}
   });
   const extras=[...sbExtrasSelected];
-  if(extras.length){
-    lines.push("","— Extras:");
-    extras.forEach(id=>{const s=allSongs().find(x=>songId(x)===id);if(s)lines.push(`  + ${s.t}${getKey(s)?" ("+getKey(s)+")":""}`);});
-  }
+  if(extras.length){lines.push("","— Extras:");extras.forEach(id=>{const s=allSongs().find(x=>songId(x)===id);if(s)lines.push(`  + ${s.t}${getKey(s)?" ("+getKey(s)+")":""}`);});}
   return lines.join("\n");
 }
-
 function bindSBEvents(){
   document.querySelectorAll("[data-sbtid]").forEach(b=>b.addEventListener("click",()=>{sbTerr=b.dataset.sbtid;renderSB();bindSBEvents();}));
-  document.querySelectorAll(".sb-status-btn").forEach(b=>b.addEventListener("click",()=>{
-    sbPool=b.dataset.spool;
-    document.querySelectorAll(".sb-status-btn").forEach(x=>x.classList.toggle("active",x.dataset.spool===sbPool));
-  }));
+  document.querySelectorAll(".sb-status-btn").forEach(b=>b.addEventListener("click",()=>{sbPool=b.dataset.spool;document.querySelectorAll(".sb-status-btn").forEach(x=>x.classList.toggle("active",x.dataset.spool===sbPool));}));
   document.getElementById("btnGenerate").onclick=()=>{generateSet();renderSB();bindSBEvents();};
-  document.querySelectorAll("[data-sblock]").forEach(b=>b.addEventListener("click",e=>{
-    e.stopPropagation();const sl=b.dataset.sblock;sbSlotState[sl].locked=!sbSlotState[sl].locked;renderSBSlots();renderSBBalance();bindSBEvents();
-  }));
-  document.querySelectorAll("[data-sbreroll]").forEach(b=>b.addEventListener("click",e=>{
-    e.stopPropagation();const sl=b.dataset.sbreroll;
-    if(!sbSlotState[sl].locked){sbSlotState[sl].song=generateSlot(sl,sbTerr);sbExtrasSelected=new Set();renderSBSlots();renderSBBalance();renderSBExtras();bindSBEvents();}
-  }));
+  document.querySelectorAll("[data-sblock]").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();const sl=b.dataset.sblock;sbSlotState[sl].locked=!sbSlotState[sl].locked;renderSBSlots();renderSBBalance();bindSBEvents();}));
+  document.querySelectorAll("[data-sbreroll]").forEach(b=>b.addEventListener("click",e=>{e.stopPropagation();const sl=b.dataset.sbreroll;if(!sbSlotState[sl].locked){sbSlotState[sl].song=generateSlot(sl,sbTerr);sbExtrasSelected=new Set();renderSBSlots();renderSBBalance();renderSBExtras();bindSBEvents();}}));
   document.querySelectorAll("[data-sbpool]").forEach(b=>b.addEventListener("click",()=>{sbPool="all";document.querySelectorAll(".sb-status-btn").forEach(x=>x.classList.toggle("active",x.dataset.spool==="all"));generateSet();renderSB();bindSBEvents();}));
-  document.querySelectorAll("[data-sbextra]").forEach(card=>card.addEventListener("click",()=>{
-    const id=card.dataset.sbextra;
-    if(sbExtrasSelected.has(id))sbExtrasSelected.delete(id);else sbExtrasSelected.add(id);
-    renderSBExtras();bindSBEvents();
-  }));
+  document.querySelectorAll("[data-sbextra]").forEach(card=>card.addEventListener("click",()=>{const id=card.dataset.sbextra;if(sbExtrasSelected.has(id))sbExtrasSelected.delete(id);else sbExtrasSelected.add(id);renderSBExtras();bindSBEvents();}));
   const cpBtn=document.getElementById("sbCopyBtn");
-  if(cpBtn)cpBtn.onclick=()=>{
-    navigator.clipboard.writeText(buildSetText()).then(()=>{cpBtn.textContent="✓ Copiado!";cpBtn.classList.add("copied");setTimeout(()=>{cpBtn.textContent="📋 Copiar set";cpBtn.classList.remove("copied");},2000);}).catch(()=>{});
-  };
+  if(cpBtn)cpBtn.onclick=()=>{navigator.clipboard.writeText(buildSetText()).then(()=>{cpBtn.textContent="✓ Copiado!";cpBtn.classList.add("copied");setTimeout(()=>{cpBtn.textContent="📋 Copiar set";cpBtn.classList.remove("copied");},2000);}).catch(()=>{});};
 }
-
-// ════════════════════════════════════════════════════════
-//  TABS + GLOBAL EVENTS
-// ════════════════════════════════════════════════════════
 function bindGlobalEvents(){
   document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>{
     activeTab=b.dataset.tab;
@@ -1061,12 +888,9 @@ function bindGlobalEvents(){
     render();
   }));
   document.getElementById("btnOpenAdd").onclick=openAddModal;
+  document.getElementById("fabBtn").onclick=openAddModal;
   document.getElementById("btnIO").onclick=openIOModal;
 }
-
-// ════════════════════════════════════════════════════════
-//  ADD MODAL
-// ════════════════════════════════════════════════════════
 let selectedFormTerr=null;
 function openAddModal(){
   selectedFormTerr=null;
@@ -1074,9 +898,7 @@ function openAddModal(){
   document.getElementById("fOrig").checked=false;
   ["fTitleErr","fTerrErr"].forEach(id=>document.getElementById(id).textContent="");
   const grid=document.getElementById("formTerrGrid");
-  grid.innerHTML=TERRITORIES.filter(t=>t.id!=="ALL").map(t=>
-    `<button class="form-terr-btn" data-ftid="${t.id}" style="border-color:${t.border};color:${t.color};background:${t.bg}">${t.emoji} ${t.name}</button>`
-  ).join("");
+  grid.innerHTML=TERRITORIES.filter(t=>t.id!=="ALL").map(t=>`<button class="form-terr-btn" data-ftid="${t.id}" style="border-color:${t.border};color:${t.color};background:${t.bg}">${t.emoji} ${t.name}</button>`).join("");
   grid.querySelectorAll(".form-terr-btn").forEach(b=>b.addEventListener("click",()=>{
     selectedFormTerr=b.dataset.ftid;
     grid.querySelectorAll(".form-terr-btn").forEach(x=>{const tt=getTerr(x.dataset.ftid);x.classList.remove("active");x.style.borderColor=tt.border;x.style.fontWeight="400";});
@@ -1094,8 +916,7 @@ function submitSong(){
   if(!title){document.getElementById("fTitleErr").textContent="El título es obligatorio.";ok=false;}else document.getElementById("fTitleErr").textContent="";
   if(!selectedFormTerr){document.getElementById("fTerrErr").textContent="Elegí un territorio.";ok=false;}else document.getElementById("fTerrErr").textContent="";
   if(!ok)return;
-  const ns={t:title,k:document.getElementById("fKey").value.trim(),s:document.getElementById("fStyle").value.trim(),
-    terr:selectedFormTerr,orig:document.getElementById("fOrig").checked,_uid:Date.now().toString(36)+Math.random().toString(36).slice(2,6)};
+  const ns={t:title,k:document.getElementById("fKey").value.trim(),s:document.getElementById("fStyle").value.trim(),terr:selectedFormTerr,orig:document.getElementById("fOrig").checked,_uid:Date.now().toString(36)+Math.random().toString(36).slice(2,6)};
   userSongs.push(ns);save();
   document.getElementById("addModal").classList.add("hidden");
   activeTab="repertorio";activeTerr="ALL";searchQ="";expandedId=null;
@@ -1105,10 +926,6 @@ function submitSong(){
   render();
   setTimeout(()=>{const el=document.querySelector(`[data-id="${songId(ns)}"]`);if(el)el.closest(".song-card").scrollIntoView({behavior:"smooth",block:"center"});},100);
 }
-
-// ════════════════════════════════════════════════════════
-//  IO MODAL
-// ════════════════════════════════════════════════════════
 function openIOModal(){
   document.getElementById("exportMsg").textContent="";document.getElementById("importMsg").textContent="";document.getElementById("ioImportText").value="";
   document.getElementById("ioModal").classList.remove("hidden");
@@ -1129,10 +946,6 @@ function openIOModal(){
     }catch{msg.className="io-msg err";msg.textContent="JSON inválido o con formato incorrecto.";}
   };
 }
-
-// ════════════════════════════════════════════════════════
-//  INIT
-// ════════════════════════════════════════════════════════
 bindGlobalEvents();
 render();
 </script>
