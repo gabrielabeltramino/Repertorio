@@ -637,12 +637,35 @@ function getPool(terrFilter){
     return mt&&ok;
   });
 }
+const MEMORY_SIZE=15;
+const LS_MEMORY="maduro26_slotmemory";
+let slotMemory=JSON.parse(localStorage.getItem(LS_MEMORY)||"{}");
+function saveMemory(){localStorage.setItem(LS_MEMORY,JSON.stringify(slotMemory));}
+function getMemory(slotId){return slotMemory[slotId]||[];}
+function addMemory(slotId,song){
+  if(!song)return;
+  const id=songId(song);
+  let mem=getMemory(slotId).filter(x=>x!==id);
+  mem.unshift(id);
+  if(mem.length>MEMORY_SIZE)mem=mem.slice(0,MEMORY_SIZE);
+  slotMemory[slotId]=mem;
+  saveMemory();
+}
 function pickRandom(arr){return arr.length?arr[Math.floor(Math.random()*arr.length)]:null;}
+function pickWithMemory(arr,slotId){
+  if(!arr.length)return null;
+  const mem=new Set(getMemory(slotId));
+  const fresh=arr.filter(s=>!mem.has(songId(s)));
+  // If fresh options exist, pick from them; otherwise clear memory for this slot and pick from all
+  if(fresh.length){return pickRandom(fresh);}
+  slotMemory[slotId]=[];saveMemory();
+  return pickRandom(arr);
+}
 function generateSlot(slotId,terrFilter){
   const inTerr=getPool(terrFilter).filter(s=>getCategory(s)===slotId);
-  if(inTerr.length)return pickRandom(inTerr);
+  if(inTerr.length){const s=pickWithMemory(inTerr,slotId);if(s){addMemory(slotId,s);return s;}}
   const anyTerr=getPool("ALL").filter(s=>getCategory(s)===slotId);
-  return pickRandom(anyTerr);
+  const s=pickWithMemory(anyTerr,slotId);if(s)addMemory(slotId,s);return s;
 }
 function generateSet(){SLOTS.forEach(sl=>{if(!sbSlotState[sl.id].locked)sbSlotState[sl.id].song=generateSlot(sl.id,sbTerr);});sbExtrasSelected=new Set();sbGenerated=true;}
 function filtered(){
